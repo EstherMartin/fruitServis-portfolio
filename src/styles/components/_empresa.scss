@@ -1,0 +1,86 @@
+.history {
+  position: relative;
+  padding: 5rem 2rem;
+
+  .history-container {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+
+  .history-tag {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.2rem;
+    position: relative;
+  }
+
+  .history-tag::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: var(--accent);
+    margin-top: 0.5rem;
+  }
+
+  h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--bg-dark);
+    margin-bottom: 1rem;
+    font-size: clamp(2.5rem, 4vw, 3.2rem);
+    letter-spacing: -1px;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    color: var(--text-second);
+    font-weight: 500;
+    margin-bottom: 3rem;
+    line-height: 1.5;
+  }
+
+  p {
+    font-size: 0.9rem;
+    line-height: 1.9;
+    color: var(--text-body);
+    margin-bottom: 1.8rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .history {
+    p {
+      min-width: 100ch;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .history {
+    padding: 3rem 2rem;
+
+    .history-container {
+      max-width: 820px;
+    }
+
+    h2 {
+      font-size: clamp(2.6rem, 4vw, 3.2rem);
+      letter-spacing: -1px;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      margin-bottom: 3rem;
+    }
+
+    p {
+      font-size: 1rem;
+      max-width: 70ch;
+    }
+  }
+}

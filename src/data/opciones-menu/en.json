@@ -7,20 +7,15 @@
   },
   "mainMenu": [
     {
-      "label": "About Us",
+  "label": "Company",
       "dropdown": [
         {
-          "title": "The Company",
-          "description": "Over 30 years distributing fresh fruit",
-          "url": "#"
-        },
-        {
           "title": "Contact",
-          "description": "Business hours and contact details",
+          "description": "Opening hours and contact details",
           "url": "#"
         },
         {
-          "title": "Work With Us",
+          "title": "Careers",
           "description": "Join our team",
           "url": "#"
         },

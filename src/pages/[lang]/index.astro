@@ -1,6 +1,7 @@
 ---
 import NavBar from "../../components/NavBar.astro";
 import Header from "../../components/Header.astro";
+import Empresa from '../../components/Empresa.astro';
 import Layout from '../../layouts/Layout.astro';
 
 export function getStaticPaths() {
@@ -21,5 +22,5 @@ if (lang !== "es" && lang !== "en") {
 <Layout>
 	<NavBar />
 	<Header />
-	<Layout />
+	<Empresa />
 </Layout>

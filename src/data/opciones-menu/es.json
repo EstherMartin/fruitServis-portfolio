@@ -7,13 +7,8 @@
   },
   "mainMenu": [
     {
-      "label": "Quiénes somos",
+      "label": "Empresa",
       "dropdown": [
-         {
-          "title": "La Empresa",
-          "description": "Más de 30 años distribuyendo fruta fresca",
-          "url": "#"
-        },
         {
           "title": "Contacto",
           "description": "Horarios y datos de contacto",

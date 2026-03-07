@@ -1,7 +1,7 @@
 .carousel {
   position: relative;
   max-width: 1200px;
-  margin: 3rem auto;
+  margin: 3rem auto 0 auto;
   overflow: hidden;
 }
 
@@ -37,11 +37,6 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.65),
-    rgba(0, 0, 0, 0.1)
-  );
 }
 
 .carousel-caption {

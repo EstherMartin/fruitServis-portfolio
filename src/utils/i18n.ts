@@ -1,4 +1,5 @@
 import type { Menu } from "../types/menu";
+import type { Company } from "../types/empresa";
 
 export function getLangData(Astro: any) {
   const { lang } = Astro.params;
@@ -27,4 +28,13 @@ export async function getMenu(currentLang: string): Promise<Menu> {
   );
 
   return menus[`../data/opciones-menu/${currentLang}.json`] as Menu;
+}
+
+export async function getCompany(currentLang: string): Promise<Company> {
+  const companies = import.meta.glob<Company>(
+    "../data/empresa/*.json",
+    { eager: true }
+  );
+
+  return companies[`../data/empresa/${currentLang}.json`] as Company;
 }
