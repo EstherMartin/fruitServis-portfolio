@@ -1,3 +1,14 @@
 ---
-return Astro.redirect("/es");
+export function getStaticPaths() {
+  return [
+    { params: { lang: "es" } },
+    { params: { lang: "en" } }
+  ];
+}
+
+const { lang } = Astro.params;
+
+if (lang !== "es" && lang !== "en") {
+  return Astro.redirect("/es");
+}
 ---
