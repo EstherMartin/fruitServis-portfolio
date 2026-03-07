@@ -52,24 +52,16 @@
   }
 }
 
-@media (min-width: 768px) {
-  .history {
-    p {
-      min-width: 100ch;
-    }
-  }
-}
-
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .history {
     padding: 3rem 2rem;
 
     .history-container {
-      max-width: 820px;
+      max-width: 1200px;
     }
 
     h2 {
-      font-size: clamp(2.6rem, 4vw, 3.2rem);
+      font-size: 2rem;
       letter-spacing: -1px;
     }
 
