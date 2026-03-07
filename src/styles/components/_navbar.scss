@@ -1,4 +1,6 @@
 .header {
+  position: relative;
+  z-index: 9999;
   background: linear-gradient(
     180deg,
     var(--bg-header) 0%,
@@ -99,8 +101,9 @@
 
 .dropdown-menu {
   position: absolute;
-  top: 130%;
+  top: 100%;
   left: 0;
+  z-index: 2000;
   width: 340px;
   background: var(--bg-dropdown);
   border-radius: 0.9rem;
