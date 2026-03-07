@@ -1,10 +1,11 @@
 @use "./components/navbar";
+@use "./components/header";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
 :root {
   --bg-dark: #0E1A17;
-  --bg-light: #142420;
-  --bg-body: #F3F4F6;
+  --bg-light: hsl(165, 29%, 11%);
+  --bg-body: #e0e9e0e8;
 
   --bg-header: #1B4332;
   --bg-header-2: #14382B;
@@ -34,4 +35,5 @@ body {
   font-weight: 500;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: var(--bg-body);
 }
