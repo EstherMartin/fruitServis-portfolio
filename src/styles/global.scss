@@ -1,6 +1,8 @@
 @use "./components/navbar";
 @use "./components/header";
 @use "./components/empresa";
+@use "./components/composicion";
+@use "./components/footer";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
 :root {
@@ -24,6 +26,7 @@
   --text-muted: #C9D1D9;
   --border-color: rgba(255, 255, 255, 0.06);
   --border-strong: rgba(255, 255, 255, 0.14);
+  --box-shadow: #0000001f;
 }
 
 * {

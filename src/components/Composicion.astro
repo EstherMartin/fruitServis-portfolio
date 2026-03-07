@@ -1,0 +1,41 @@
+---
+
+const rawImages = import.meta.glob("/src/assets/empresa/*.{jpg,jpeg,png,webp}", {
+  eager: true,
+  as: "url"
+});
+
+const images = Object.values(rawImages);
+---
+
+<section class="empresa-composition">
+  <div class="container">
+    <div
+      class="fan-grid"
+      style={`gap: ${images.length > 6 ? "1rem" : "2rem"}`}
+    >
+      {images.map((img, i) => {
+        const total = images.length;
+        const center = (total - 1) / 2;
+        const offset = i - center;
+
+        const rotation = offset * 4;
+        const translateY = Math.abs(offset) * 5;
+        const zIndex = total - Math.abs(offset);
+
+        return (
+          <div
+            class="fan-item"
+            style={`
+                --rotate: ${rotation}deg;
+                --offsetY: ${translateY}px;
+                z-index: ${zIndex};
+            `}
+            >
+            <img src={img} alt={`Empresa image ${i + 1}`} />
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>
