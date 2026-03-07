@@ -1,0 +1,208 @@
+---
+import logoEmpresa from "../assets/logo-empresa.png";
+import flagES from "../assets/esp.png";
+import flagEN from "../assets/eng.png";
+
+interface Menu {
+  logo: {
+    alt: string;
+    url: string;
+    title: string;
+  };
+  mainMenu: {
+    label: string;
+    url?: string;
+    dropdown?: {
+      title: string;
+      description?: string;
+      url: string;
+    }[];
+  }[];
+  language: {
+    label: string;
+    url: string;
+  };
+}
+
+const { lang } = Astro.params;
+const currentLang = lang === "en" ? "en" : "es";
+const switchLang = currentLang === "en" ? "es" : "en";
+
+const currentPath = Astro.url.pathname;
+const segments = currentPath.split("/").filter(Boolean);
+segments[0] = switchLang;
+const switchLangUrl = "/" + segments.join("/");
+
+const menus = import.meta.glob<Menu>(
+  "../data/opciones-menu/*.json",
+  { eager: true }
+);
+
+const menu = menus[`../data/opciones-menu/${currentLang}.json`] as Menu;
+
+segments[0] = switchLang;
+
+const homeUrl = `/${currentLang}`;
+
+---
+
+<header class="header">
+  <nav class="nav container">
+    
+    <div class="nav-left">
+      <img src={logoEmpresa.src} alt={menu.logo.alt} />
+      <a href={homeUrl} class="logo">
+        <p class="title">{menu.logo.title}</p>
+      </a>
+    </div>
+
+    <button class="menu-toggle" id="openMenu">
+      ☰
+    </button>
+
+    <ul class="nav-links">
+      {menu.mainMenu.map((item) => (
+        <li class={item.dropdown ? "dropdown" : ""}>
+          
+          {item.dropdown ? (
+            <>
+              <button class="dropdown-toggle">
+                {item.label} ▾
+              </button>
+
+              <div class="dropdown-menu">
+                <div class="dropdown-grid">
+                  {item.dropdown.map((subItem) => (
+                    <a href={subItem.url} class="dropdown-item">
+                      <h4>{subItem.title}</h4>
+                      <p>{subItem.description}</p>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </>
+          ) : (
+            <a href={item.url}>{item.label}</a>
+          )}
+        </li>
+      ))}
+    </ul>
+
+    <div class="nav-right">
+      <img 
+        src={switchLang === "en" ? flagEN.src : flagES.src} 
+        alt="language flag" 
+      />
+      <a href={switchLangUrl} class="language">
+        {switchLang.toUpperCase()}
+      </a>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-panel">
+      
+      <div class="mobile-header">
+        <img src={logoEmpresa.src} alt={menu.logo.alt} />
+        <a href={homeUrl} class="logo">
+          <p class="title">{menu.logo.title}</p>
+        </a>
+      </div>
+
+      <div class="mobile-links">
+        {menu.mainMenu.map((item) =>
+          item.dropdown ? (
+            <div class="mobile-dropdown">
+              <button class="mobile-dropdown-toggle">
+                {item.label}
+              </button>
+
+              <div class="mobile-dropdown-menu">
+                {item.dropdown.map((subItem) => (
+                  <a href={subItem.url}>{subItem.title}</a>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <a href={item.url}>{item.label}</a>
+          )
+        )}
+      </div>
+
+      <div class="mobile-language">
+        <img 
+          src={currentLang === "es" ? flagEN.src : flagES.src} 
+          alt="language flag" 
+        />
+        <a href={switchLangUrl} class="language">
+          {currentLang === "es" ? "EN" : "ES"}
+        </a>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+
+    const openBtn = document.getElementById("openMenu");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    if (!openBtn || !mobileMenu) return;
+
+    function openMenu() {
+      mobileMenu!.classList.add("active");
+      openBtn!.setAttribute("aria-expanded", "true");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeMenu() {
+      mobileMenu!.classList.remove("active");
+      openBtn!.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+    }
+
+    openBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      mobileMenu.classList.contains("active")
+        ? closeMenu()
+        : openMenu();
+    });
+
+    document.querySelectorAll(".mobile-menu a").forEach(link => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!mobileMenu.classList.contains("active")) return;
+
+      const target = e.target as Node;
+
+      const clickInsideMenu = mobileMenu.contains(target);
+      const clickOnButton = openBtn.contains(target);
+
+      if (!clickInsideMenu && !clickOnButton) {
+        closeMenu();
+      }
+    });
+
+    document.querySelectorAll(".mobile-dropdown-toggle").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+
+        const dropdown = btn.closest(".mobile-dropdown");
+        if (!dropdown) return;
+
+        const menu = dropdown.querySelector(".mobile-dropdown-menu");
+        if (!menu) return;
+
+        menu.classList.toggle("open");
+      });
+    });
+  });
+</script>

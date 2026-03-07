@@ -1,0 +1,69 @@
+{
+  "logo": {
+    "alt": "Fruit Service",
+    "title":"Fruit Service",
+    "url": "/"
+  },
+  "mainMenu": [
+    {
+      "label": "Quiénes somos",
+      "dropdown": [
+         {
+          "title": "La Empresa",
+          "description": "Más de 30 años distribuyendo fruta fresca",
+          "url": "#"
+        },
+        {
+          "title": "Contacto",
+          "description": "Horarios y datos de contacto",
+          "url": "#"
+        },
+        {
+          "title": "Trabaja con nosotros",
+          "description": "Únete a nuestro equipo",
+          "url": "#"
+        },
+        {
+          "title": "Canal de denuncias",
+          "description": "Canal confidencial interno",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "label": "Nuestros productos",
+      "dropdown": [
+         {
+          "title": "Catálogo",
+          "description": "Toda nuestra gama de fruta fresca",
+          "url": "#"
+        },
+        {
+          "title": "Marcas y productores",
+          "description": "Trabajamos con los mejores del país",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "label": "Medio Ambiente",
+      "dropdown": [
+         {
+          "title": "Nuestro compromiso",
+          "description": "Agricultura sostenible y cero residuos",
+          "url": "#"
+        },
+        {
+          "title": "El Campo",
+          "description": "Trabajamos directamente con agricultores",
+          "url": "#"
+        }
+      ]
+    },
+    { "label": "Actualidad", "url": "#" }
+  ],
+  "language": {
+    "label": "Español",
+    "url": "#"
+  }
+}

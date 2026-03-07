@@ -1,0 +1,69 @@
+{
+  "logo": {
+    "alt": "Fruit Service",
+    "title":"Fruit Service",
+    "url": "/"
+  },
+  "mainMenu": [
+    {
+      "label": "Quiénes somos",
+      "dropdown": [
+         {
+          "title": "La Empresa",
+          "description": "Conoce quienes somos",
+          "url": "#"
+        },
+        {
+          "title": "Contacto",
+          "description": "Get a better understanding of your traffic",
+          "url": "#"
+        },
+        {
+          "title": "Trabaja con nosotros",
+          "description": "Speak directly to your customers",
+          "url": "#"
+        },
+        {
+          "title": "Canal denuncias",
+          "description": "Your customers’ data will be safe",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "label": "Nuestros productos",
+      "dropdown": [
+         {
+          "title": "Productos",
+          "description": "Get a better understanding of your traffic",
+          "url": "#"
+        },
+        {
+          "title": "Marcas",
+          "description": "Get a better understanding of your traffic",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "label": "Medio Ambiente",
+      "dropdown": [
+         {
+          "title": "Cuidamos el medio",
+          "description": "Get a better understanding of your traffic",
+          "url": "#"
+        },
+        {
+          "title": "Campo",
+          "description": "Get a better understanding of your traffic",
+          "url": "#"
+        }
+      ]
+    },
+    { "label": "Actualidad", "url": "#" }
+  ],
+  "language": {
+    "label": "Spanish",
+    "url": "#"
+  }
+}

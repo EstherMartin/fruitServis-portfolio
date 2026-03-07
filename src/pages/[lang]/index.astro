@@ -1,0 +1,25 @@
+---
+import NavBar from "../../components/NavBar.astro";
+import Header from "../../components/Header.astro";
+import Layout from '../../layouts/Layout.astro';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: "es" } },
+    { params: { lang: "en" } }
+  ];
+}
+
+const { lang } = Astro.params;
+
+if (lang !== "es" && lang !== "en") {
+  return Astro.redirect("/es");
+}
+
+---
+
+<Layout>
+	<NavBar />
+	<Header />
+	<Layout />
+</Layout>

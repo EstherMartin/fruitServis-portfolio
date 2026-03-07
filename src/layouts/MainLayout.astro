@@ -1,4 +1,12 @@
 ---
+
+const currentPath = Astro.url.pathname;
+const isEnglish = currentPath.startsWith("/en");
+
+const switchLangUrl = isEnglish
+  ? currentPath.replace(/^\/en/, "") || "/"   // vuelve a ES
+  : `/en${currentPath === "/" ? "" : currentPath}`; // pasa a EN
+  
 const { title = "Fruit Service" } = Astro.props;
 import "../styles/global.css";
 ---

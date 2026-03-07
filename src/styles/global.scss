@@ -1,1 +1,37 @@
 @use "./components/navbar";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --bg-dark: #0E1A17;
+  --bg-light: #142420;
+  --bg-body: #F3F4F6;
+
+  --bg-header: #1B4332;
+  --bg-header-2: #14382B;
+
+  --bg-dropdown: #102A22;
+  --bg-hover: #18382E;
+  --bg-active: #1F4D3A;
+  --accent: #FF9A3C;
+  --accent-hover: #F28C28;
+  --accent-soft: rgba(255, 154, 60, 0.12);
+  --accent-border: rgba(255, 154, 60, 0.35);
+  --text-main: #FFFFFF;
+  --text-body: #1F2937;
+  --text-muted: #C9D1D9;
+  --border-color: rgba(255, 255, 255, 0.06);
+  --border-strong: rgba(255, 255, 255, 0.14);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, system-ui, sans-serif;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

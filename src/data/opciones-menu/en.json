@@ -1,0 +1,72 @@
+{
+  "logo": {
+    "alt": "Fruit Service",
+    "title": "Fruit Service",
+    "url": "/"
+  },
+  "mainMenu": [
+    {
+      "label": "About Us",
+      "dropdown": [
+        {
+          "title": "The Company",
+          "description": "Over 30 years distributing fresh fruit",
+          "url": "#"
+        },
+        {
+          "title": "Contact",
+          "description": "Business hours and contact details",
+          "url": "#"
+        },
+        {
+          "title": "Work With Us",
+          "description": "Join our team",
+          "url": "#"
+        },
+        {
+          "title": "Whistleblowing Channel",
+          "description": "Confidential internal reporting channel",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "label": "Our Products",
+      "dropdown": [
+        {
+          "title": "Catalog",
+          "description": "Our complete range of fresh fruit",
+          "url": "#"
+        },
+        {
+          "title": "Brands & Producers",
+          "description": "We work with the best in the country",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "label": "Environment",
+      "dropdown": [
+        {
+          "title": "Our Commitment",
+          "description": "Sustainable agriculture and zero waste",
+          "url": "#"
+        },
+        {
+          "title": "The Field",
+          "description": "We work directly with farmers",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "label": "News",
+      "url": "#"
+    }
+  ],
+  "language": {
+    "label": "English",
+    "url": "#"
+  }
+}
