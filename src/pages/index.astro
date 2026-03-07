@@ -6,9 +6,8 @@ export function getStaticPaths() {
   ];
 }
 
-const { lang } = Astro.params;
+const langHeader = Astro.request.headers.get("accept-language");
+const userLang = langHeader?.startsWith("en") ? "en" : "es";
 
-if (lang !== "es" && lang !== "en") {
-  return Astro.redirect("/es");
-}
+return Astro.redirect(`/${userLang}`);
 ---

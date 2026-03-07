@@ -1,10 +1,17 @@
 ---
-const images = Object.values(
-  import.meta.glob("/src/assets/carousel/*.{jpg,jpeg,png,webp}", {
-    eager: true,
-    as: "url"
-  })
-) as string[];
+import type { Menu } from "../types/menu";
+import { getLangData, getMenu } from "../utils/i18n";
+
+const { currentLang } = getLangData(Astro);
+const menu = await getMenu(currentLang) as Menu;
+
+const rawImages = import.meta.glob("/src/assets/carousel/*.{jpg,jpeg,png,webp}", {
+  eager: true,
+  as: "url"
+});
+
+const images = Object.values(rawImages);
+
 ---
 
 <section class="carousel">
@@ -14,8 +21,8 @@ const images = Object.values(
       <div class="carousel-slide">
         <img src={img} alt={`Carousel image ${i + 1}`} />
         <div class="carousel-caption">
-          <h3>Fruit Service</h3>
-          <p>Fresh quality you can trust</p>
+          <h3>{menu.logo.title}</h3>
+          <p>{menu.logo.description}</p>
         </div>
       </div>
     ))}
@@ -47,6 +54,8 @@ const images = Object.values(
     slides.forEach((slide, i) => {
     slide.classList.toggle("active", i === index);
     });
+
+    if (window.innerWidth <= 768) return;
   }
 
   function nextSlide() {

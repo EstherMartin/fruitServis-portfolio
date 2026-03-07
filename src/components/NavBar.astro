@@ -3,46 +3,12 @@ import logoEmpresa from "../assets/logo-empresa.png";
 import flagES from "../assets/esp.png";
 import flagEN from "../assets/eng.png";
 
-interface Menu {
-  logo: {
-    alt: string;
-    url: string;
-    title: string;
-  };
-  mainMenu: {
-    label: string;
-    url?: string;
-    dropdown?: {
-      title: string;
-      description?: string;
-      url: string;
-    }[];
-  }[];
-  language: {
-    label: string;
-    url: string;
-  };
-}
+import type { Menu } from "../types/menu";
+import { getLangData, getMenu } from "../utils/i18n";
 
-const { lang } = Astro.params;
-const currentLang = lang === "en" ? "en" : "es";
-const switchLang = currentLang === "en" ? "es" : "en";
+const { currentLang, switchLang, switchLangUrl, homeUrl } = getLangData(Astro);
 
-const currentPath = Astro.url.pathname;
-const segments = currentPath.split("/").filter(Boolean);
-segments[0] = switchLang;
-const switchLangUrl = "/" + segments.join("/");
-
-const menus = import.meta.glob<Menu>(
-  "../data/opciones-menu/*.json",
-  { eager: true }
-);
-
-const menu = menus[`../data/opciones-menu/${currentLang}.json`] as Menu;
-
-segments[0] = switchLang;
-
-const homeUrl = `/${currentLang}`;
+const menu = await getMenu(currentLang) as Menu;
 
 ---
 
