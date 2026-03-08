@@ -1,41 +1,65 @@
 ---
+import { Image } from "astro:assets";
+
+import type { Menu } from "../types/menu";
+import type { Company } from "../types/empresa";
+import type { Links } from "../types/enlaces";
+
+import { getLangData, getMenu, getCompany, getLinks } from "../utils/i18n";
+
+const { currentLang } = getLangData(Astro);
+
+const menu = await getMenu(currentLang) as Menu;
+const company = await getCompany(currentLang) as Company;
+const linksData = await getLinks(currentLang) as Links;
 
 const rawImages = import.meta.glob("/src/assets/empresa/*.{jpg,jpeg,png,webp}", {
   eager: true,
   as: "url"
 });
 
-const images = Object.values(rawImages);
+const images = Object.fromEntries(
+  Object.entries(rawImages).map(([path, url]) => {
+    const name = path.replace(/^.*[\\/]/, "").replace(/\.[^/.]+$/, "");
+    return [name, url];
+  })
+);
+
+const links = linksData.links;
 ---
 
 <section class="empresa-composition">
   <div class="container">
-    <div
-      class="fan-grid"
-      style={`gap: ${images.length > 6 ? "1rem" : "2rem"}`}
-    >
-      {images.map((img, i) => {
-        const total = images.length;
+    <div class="fan-grid">
+
+      {links.map((item, i) => {
+        const total = links.length;
         const center = (total - 1) / 2;
         const offset = i - center;
 
-        const rotation = offset * 4;
+        const rotation = offset * 3;
         const translateY = Math.abs(offset) * 5;
         const zIndex = total - Math.abs(offset);
 
         return (
-          <div
+          <a
+            href={item.url}
             class="fan-item"
             style={`
-                --rotate: ${rotation}deg;
-                --offsetY: ${translateY}px;
-                z-index: ${zIndex};
+              --rotate: ${rotation}deg;
+              --offsetY: ${translateY}px;
+              z-index: ${zIndex};
             `}
-            >
-            <img src={img} alt={`Empresa image ${i + 1}`} />
-          </div>
+          >
+            <img src={images[item.image]} alt={item.title} />
+
+            <div class="fan-overlay">
+              <span class="fan-title">{item.title}</span>
+            </div>
+          </a>
         );
       })}
+
     </div>
   </div>
 </section>

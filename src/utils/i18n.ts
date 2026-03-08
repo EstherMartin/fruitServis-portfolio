@@ -1,5 +1,6 @@
 import type { Menu } from "../types/menu";
 import type { Company } from "../types/empresa";
+import type { Links } from "../types/enlaces";
 
 export function getLangData(Astro: any) {
   const { lang } = Astro.params;
@@ -37,4 +38,13 @@ export async function getCompany(currentLang: string): Promise<Company> {
   );
 
   return companies[`../data/empresa/${currentLang}.json`] as Company;
+}
+
+export async function getLinks(currentLang: string): Promise<Links> {
+  const links = import.meta.glob<{ default: Links }>(
+    "../data/enlaces/*.json",
+    { eager: true }
+  );
+
+  return links[`../data/enlaces/${currentLang}.json`].default;
 }

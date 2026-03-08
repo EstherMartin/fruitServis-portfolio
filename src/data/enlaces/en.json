@@ -1,0 +1,24 @@
+{
+  "links": [
+    {
+      "title": "Our Products",
+      "url": "/en/products",
+      "image": "fresas"
+    },
+    {
+      "title": "Careers",
+      "url": "/en/work",
+      "image": "manzanas"
+    },
+    {
+      "title": "Our Commitment",
+      "url": "/en/sustainability",
+      "image": "medio-ambiente"
+    },
+    {
+      "title": "Contact",
+      "url": "/en/contact",
+      "image": "naranjo"
+    }
+  ]
+}
