@@ -39,42 +39,44 @@
 }
 
 @media (max-width: 768px) {
-  .empresa-composition {
 
-    .fan-grid {
-      display: flex;
-      align-items: center;
-      overflow-x: auto;
-      padding: 2rem 1rem;
-      -webkit-overflow-scrolling: touch;
-    }
+  .empresa-composition .fan-grid {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 2.5rem;
+    flex-wrap: nowrap;
+    padding: 3rem 2rem;
+    flex-direction: row;
 
-    .fan-grid::-webkit-scrollbar {
-      display: none;
+    empresa-composition {
+      padding-left: 0;
+      padding-right: 0;
     }
+  }
+  .empresa-composition .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
 
-    .fan-item {
-      position: relative;
-      flex: 0 0 auto;
-      width: 120px;
-      height: 170px;
-      margin-left: -40px; 
-      transform: rotate(-4deg);
-      transition: transform 0.4s ease, z-index 0.3s ease;
-    }
+  .fan-grid {
+    display: flex;
+    justify-content: flex-start;
+    overflow-x: auto;
+    gap: 1rem;
+    padding: 2rem 1.5rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
 
-    .fan-item:first-child {
-      margin-left: 0;
-    }
+  .fan-grid::-webkit-scrollbar {
+    display: none;
+  }
 
-    .fan-item:nth-child(even) {
-      transform: rotate(4deg);
-    }
-
-    .fan-item:active,
-    .fan-item:hover {
-      transform: rotate(0deg) scale(1.1);
-      z-index: 20;
-    }
+  .fan-item {
+    flex: 0 0 auto;
+    width: 140px;
+    height: 180px;
+    scroll-snap-align: center;
   }
 }
