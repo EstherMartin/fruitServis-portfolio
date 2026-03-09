@@ -1,0 +1,41 @@
+---
+
+import type { CompanyDefinition } from "../../types/empresa-definicion";
+
+import { getCompanyDefinition } from "../../utils/i18n/i18n";
+import { buildUrl } from "../../utils/i18n/utils";
+
+const { lang } = Astro.params;
+const currentLang = lang as "es" | "en";
+
+const companyDefinition = await getCompanyDefinition(currentLang) as CompanyDefinition;
+
+---
+
+<section class="definition">
+  <div class="container">
+    <div class="definition-content">
+      <span class="definition-tag">{companyDefinition.header}</span>
+      <h2>{companyDefinition.title}</h2>
+      <h3>{companyDefinition.subtitle}</h3>
+
+      <p class="definition-intro">
+        {companyDefinition.intro}
+      </p>
+
+      <ul class="definition-highlights">
+        {companyDefinition.highlights.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+
+      <div class="definition-cta">
+        {companyDefinition.cta.map((button, index) => (
+          <a href={buildUrl(currentLang, button.url)} class={`btn-${index === 0 ? 'primary' : 'secondary'}`}>
+            {button.text}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

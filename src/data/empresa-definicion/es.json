@@ -1,0 +1,22 @@
+{
+  "header": "Nuestra propuesta de valor",
+  "title": "Proveedor mayorista y exportador de fruta fresca",
+  "subtitle": "Producción, comercialización y distribución para mercados nacionales e internacionales",
+  "intro": "En Fruit Service trabajamos como productores, comercializadores y exportadores de fruta fresca, ofreciendo soluciones adaptadas a supermercados, distribuidores y canal horeca.",
+  "highlights": [
+    "Gestión de grandes volúmenes diarios con estricto control de calidad en origen",
+    "Trazabilidad completa y cumplimiento de estándares internacionales",
+    "Infraestructura moderna y logística eficiente para exportación",
+    "Más de 50 años de experiencia en el sector hortofrutícola"
+  ],
+  "cta": [
+    {
+      "text": "Ver productos",
+      "url": "catalogo"
+    },
+    {
+      "text": "Contactar con ventas",
+      "url": "contacto"
+    }
+  ]
+}

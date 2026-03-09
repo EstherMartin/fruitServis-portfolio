@@ -1,0 +1,26 @@
+---
+
+import type { CompanyHistory } from "../../types/empresa-historia";
+
+import { getCompanyHistory } from "../../utils/i18n/i18n";
+
+const { lang } = Astro.params;
+const currentLang = lang as "es" | "en";
+
+const companyHistory = await getCompanyHistory(currentLang) as CompanyHistory;
+
+---
+
+<section class="history">
+  <div class="container">
+    <div class="history-content">
+      <span class="history-tag">{companyHistory.header}</span>
+      <h2>{companyHistory.title}</h2>
+      <h3>{companyHistory.subtitle}</h3>
+
+      {companyHistory.content.map((paragraph) => (
+        <p>{paragraph}</p>
+      ))}
+    </div>
+  </div>
+</section>

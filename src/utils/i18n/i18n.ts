@@ -1,5 +1,6 @@
 import type { Menu } from "../../types/menu";
-import type { Company } from "../../types/empresa";
+import type { CompanyHistory } from "../../types/empresa-historia";
+import type { CompanyDefinition } from "../../types/empresa-definicion";
 import type { Links } from "../../types/enlaces";
 import type { FooterData } from "../../types/footer";
 
@@ -28,15 +29,16 @@ async function loadJsonByLang<T>(
   currentLang: string,
   label: string
 ): Promise<T> {
-  const match = Object.entries(globResult).find(([p]) =>
-    p.endsWith(`${currentLang}.json`)
+
+  const filePath = Object.keys(globResult).find(path =>
+    path.endsWith(`/${currentLang}.json`)
   );
 
-  if (!match) {
+  if (!filePath) {
     throw new Error(`${label} not found for lang: ${currentLang}`);
   }
 
-  return match[1].default;
+  return globResult[filePath].default;
 }
 
 const menuFiles = import.meta.glob<{ default: Menu }>(
@@ -46,12 +48,19 @@ const menuFiles = import.meta.glob<{ default: Menu }>(
 export const getMenu = (lang: string) =>
   loadJsonByLang<Menu>(menuFiles, lang, "Menu");
 
-const companyFiles = import.meta.glob<{ default: Company }>(
-  "/src/data/empresa/*.json",
+const companyHistoryFiles = import.meta.glob<{ default: CompanyHistory }>(
+  "/src/data/empresa-historia/*.json",
   { eager: true }
 );
-export const getCompany = (lang: string) =>
-  loadJsonByLang<Company>(companyFiles, lang, "Company");
+export const getCompanyHistory = (lang: string) =>
+  loadJsonByLang<CompanyHistory>(companyHistoryFiles, lang, "CompanyHistory");
+
+const companyDefinitionFiles = import.meta.glob<{ default: CompanyDefinition }>(
+  "/src/data/empresa-definicion/*.json",
+  { eager: true }
+);
+export const getCompanyDefinition = (lang: string) =>
+  loadJsonByLang<CompanyDefinition>(companyDefinitionFiles, lang, "CompanyDefinition");
 
 const linksFiles = import.meta.glob<{ default: Links }>(
   "/src/data/enlaces/*.json",

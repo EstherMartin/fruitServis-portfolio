@@ -1,0 +1,22 @@
+{
+  "header": "Our Value Proposition",
+  "title": "Wholesale Supplier and Exporter of Fresh Fruit",
+  "subtitle": "Production, commercialization and distribution for national and international markets",
+  "intro": "At Fruit Service, we operate as producers, marketers and exporters of fresh fruit, providing tailored solutions for supermarkets, distributors and the horeca channel.",
+  "highlights": [
+    "Large daily volumes with strict quality control at origin",
+    "Full traceability and compliance with international standards",
+    "Modern facilities and efficient international logistics",
+    "Over 50 years of experience in the fruit and vegetable sector"
+  ],
+  "cta": [
+    {
+      "text": "View Products",
+      "url": "catalogo"
+    },
+    {
+      "text": "Contact Sales",
+      "url": "contacto"
+    }
+  ]
+}

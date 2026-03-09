@@ -1,0 +1,136 @@
+.definition {
+  position: relative;
+  padding: 3rem 2rem;
+
+  .definition-container {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+
+  .definition-tag {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.2rem;
+    position: relative;
+  }
+
+  .definition-tag::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: var(--accent);
+    margin-top: 0.5rem;
+  }
+
+  h2 {
+    font-size: clamp(2.5rem, 4vw, 3.2rem);
+    font-weight: 700;
+    color: var(--bg-dark);
+    margin-bottom: 1rem;
+    letter-spacing: -1px;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    color: var(--text-second);
+    font-weight: 500;
+    margin-bottom: 3rem;
+    line-height: 1.5;
+  }
+
+  .definition-intro {
+    font-size: 0.9rem;
+    line-height: 1.9;
+    color: var(--text-body);
+    margin-bottom: 1.8rem;
+  }
+
+  .definition-highlights {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2.5rem;
+
+    li {
+      font-size: 0.9rem;
+      line-height: 1.9;
+      color: var(--text-body);
+      margin-bottom: 1.2rem;
+      padding-left: 1.8rem;
+      position: relative;
+    }
+
+    li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+  }
+
+  .definition-cta {
+    display: flex;
+    gap: 1rem;
+    margin-top: 3rem;
+    justify-content: center;
+    
+    .btn-primary,
+    .btn-secondary {
+      padding: 0.9rem 1.8rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+    
+    .btn-secondary {
+      border: 2px solid var(--bg-dark);
+      color: var(--bg-dark);
+    }
+  }
+}
+
+.definition-highlights {
+  max-width: 650px;
+  margin: 0 auto 2.5rem auto;
+  text-align: left;
+}
+
+@media (max-width: 900px) {
+  .definition {
+    padding: 3rem 2rem;
+
+    .definition-container {
+      max-width: 1200px;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .definition-intro,
+    .definition-highlights li {
+      font-size: 1rem;
+    }
+    
+    .definition-cta {
+      flex-direction: column;
+    }
+  }
+}
