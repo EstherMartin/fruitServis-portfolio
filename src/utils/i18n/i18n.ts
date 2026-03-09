@@ -3,6 +3,7 @@ import type { CompanyHistory } from "../../types/empresa-historia";
 import type { CompanyDefinition } from "../../types/empresa-definicion";
 import type { Links } from "../../types/enlaces";
 import type { FooterData } from "../../types/footer";
+import type { ContactSection } from "../../types/contacto";
 
 export function getLangData(Astro: any) {
   const { lang } = Astro.params;
@@ -73,6 +74,12 @@ const footerFiles = import.meta.glob<{ default: FooterData }>(
   "/src/data/footer/*.json",
   { eager: true }
 );
-
 export const getFooter = (lang: string) =>
   loadJsonByLang<FooterData>(footerFiles, lang, "Footer");
+
+const contactFiles = import.meta.glob<{ default: ContactSection }>(
+  "/src/data/contacto/*.json",
+  { eager: true }
+);
+export const getContact = (lang: string) =>
+  loadJsonByLang<ContactSection>(contactFiles, lang, "Contact");
