@@ -1,6 +1,17 @@
 ---
 import "../styles/global.scss";
+
+const langParam = Astro.params.lang;
+
+const lang = Astro.params.lang!;
+
+Astro.cookies.set("lang", lang, {
+  path: "/",
+  maxAge: 60 * 60 * 24 * 365
+});
+
 ---
+
 <!doctype html>
 <html lang="en">
 	<head>

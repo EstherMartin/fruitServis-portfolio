@@ -1,14 +1,24 @@
 ---
+
 import logoEmpresa from "../assets/logo-empresa.png";
 import flagES from "../assets/esp.png";
 import flagEN from "../assets/eng.png";
 
 import type { Menu } from "../types/menu";
-import { getLangData, getMenu } from "../utils/i18n";
+import { buildUrl } from "../utils/i18n/utils";
+import { getMenu } from "../utils/i18n/i18n";
 
-const { currentLang, switchLang, switchLangUrl, homeUrl } = getLangData(Astro);
+const { lang } = Astro.params;
+const currentLang = lang as "es" | "en";
 
 const menu = await getMenu(currentLang) as Menu;
+
+const pathname = Astro.url.pathname;
+const switchLang = currentLang === "es" ? "en" : "es";
+const switchLangUrl = pathname.replace(
+  `/${currentLang}`,
+  `/${switchLang}`
+);
 
 ---
 
@@ -17,7 +27,7 @@ const menu = await getMenu(currentLang) as Menu;
     
     <div class="nav-left">
       <img src={logoEmpresa.src} alt={menu.logo.alt} />
-      <a href={homeUrl} class="logo">
+      <a href={buildUrl(currentLang, menu.logo.url)} class="logo">
         <p class="title">{menu.logo.title}</p>
       </a>
     </div>
@@ -39,7 +49,7 @@ const menu = await getMenu(currentLang) as Menu;
               <div class="dropdown-menu">
                 <div class="dropdown-grid">
                   {item.dropdown.map((subItem) => (
-                    <a href={subItem.url} class="dropdown-item">
+                    <a href={buildUrl(currentLang, subItem.url)} class="dropdown-item">
                       <h4>{subItem.title}</h4>
                       <p>{subItem.description}</p>
                     </a>
@@ -48,7 +58,7 @@ const menu = await getMenu(currentLang) as Menu;
               </div>
             </>
           ) : (
-            <a href={item.url}>{item.label}</a>
+            <a href={buildUrl(currentLang, item.url)}>{item.label}</a>
           )}
         </li>
       ))}
@@ -70,7 +80,7 @@ const menu = await getMenu(currentLang) as Menu;
       
       <div class="mobile-header">
         <img src={logoEmpresa.src} alt={menu.logo.alt} />
-        <a href={homeUrl} class="logo">
+        <a href={buildUrl(currentLang, menu.logo.url)} class="logo">
           <p class="title">{menu.logo.title}</p>
         </a>
       </div>
@@ -85,12 +95,12 @@ const menu = await getMenu(currentLang) as Menu;
 
               <div class="mobile-dropdown-menu">
                 {item.dropdown.map((subItem) => (
-                  <a href={subItem.url}>{subItem.title}</a>
+                  <a href={buildUrl(currentLang, subItem.url)}>{subItem.title}</a>
                 ))}
               </div>
             </div>
           ) : (
-            <a href={item.url}>{item.label}</a>
+            <a href={buildUrl(currentLang, item.url)}>{item.label}</a>
           )
         )}
       </div>

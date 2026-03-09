@@ -1,25 +1,40 @@
+---
+import { getFooter } from "../utils/i18n/i18n";
+import { buildUrl } from "../utils/i18n/utils";
+
+const { lang } = Astro.params;
+const currentLang = lang as "es" | "en";
+
+const footerData = await getFooter(currentLang);
+const currentYear = new Date().getFullYear();
+---
+
 <footer class="site-footer">
   <div class="container footer-bottom-inner">
+    
     <div class="footer-left">
       <p>
-        © {new Date().getFullYear()} Fruit Service. 
-        Todos los derechos reservados.
+        © {currentYear} Fruit Service. {footerData.copyright}
       </p>
     </div>
 
     <div class="footer-right">
       <p class="footer-legal">
-        <a href="/es/aviso-legal">Aviso legal</a>
-        <span>·</span>
-        <a href="/es/politica-privacidad">Privacidad</a>
+        {footerData.legal.map((link, index) => (
+          <>
+            <a href={buildUrl(currentLang, link.slug)}>{link.label}</a>
+            {index < footerData.legal.length - 1 && <span>·</span>}
+          </>
+        ))}
       </p>
 
       <p class="footer-credit">
-          Site by 
+        {footerData.credit} 
         <a href="mailto:esther.martin.dev@outlook.es">
           Esther Martín
         </a>
       </p>
     </div>
+    
   </div>
 </footer>

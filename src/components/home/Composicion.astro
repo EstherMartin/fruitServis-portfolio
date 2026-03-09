@@ -1,16 +1,13 @@
 ---
-import { Image } from "astro:assets";
 
-import type { Menu } from "../types/menu";
-import type { Company } from "../types/empresa";
-import type { Links } from "../types/enlaces";
+import type { Links } from "../../types/enlaces";
 
-import { getLangData, getMenu, getCompany, getLinks } from "../utils/i18n";
+import { getLinks } from "../../utils/i18n/i18n";
+import { buildUrl } from "../../utils/i18n/utils";
 
-const { currentLang } = getLangData(Astro);
+const { lang } = Astro.params;
+const currentLang = lang as "es" | "en";
 
-const menu = await getMenu(currentLang) as Menu;
-const company = await getCompany(currentLang) as Company;
 const linksData = await getLinks(currentLang) as Links;
 
 const rawImages = import.meta.glob("/src/assets/empresa/*.{jpg,jpeg,png,webp}", {
@@ -43,7 +40,7 @@ const links = linksData.links;
 
         return (
           <a
-            href={item.url}
+            href={buildUrl(currentLang, item.url)}
             class="fan-item"
             style={`
               --rotate: ${rotation}deg;

@@ -2,23 +2,23 @@
   "links": [
     {
       "title": "Our Products",
-      "url": "/en/products",
+      "url": "catalogo",
       "image": "fresas"
     },
     {
-      "title": "Careers",
-      "url": "/en/work",
+      "title": "Join Us",
+      "url": "contacto",
       "image": "manzanas"
     },
     {
-      "title": "Our Commitment",
-      "url": "/en/sustainability",
-      "image": "medio-ambiente"
+      "title": "Commitment",
+      "url": "compromiso",
+      "image": "naranjo"
     },
     {
-      "title": "Contact",
-      "url": "/en/contact",
-      "image": "naranjo"
+      "title": "Our Fields",
+      "url": "campo",
+      "image": "medio-ambiente"
     }
   ]
 }

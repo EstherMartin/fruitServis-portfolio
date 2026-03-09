@@ -1,22 +1,22 @@
 ---
 import NavBar from "../../components/NavBar.astro";
-import Header from "../../components/Header.astro";
-import Empresa from '../../components/Empresa.astro';
-import Composicion from '../../components/Composicion.astro';
+import Header from "../../components/home/Header.astro";
+import Empresa from '../../components/home/Empresa.astro';
+import Composicion from '../../components/home/Composicion.astro';
 import Footer from '../../components/Footer.astro';
 import Layout from '../../layouts/Layout.astro';
 
-export function getStaticPaths() {
-  return [
-    { params: { lang: "es" } },
-    { params: { lang: "en" } }
-  ];
-}
+export const prerender = false;
+
+import { generateStaticPaths } from "../../utils/i18n/utils";
+import { isValidLang, defaultLang } from "../../utils/i18n/config";
+
+export const getStaticPaths = generateStaticPaths;
 
 const { lang } = Astro.params;
 
-if (lang !== "es" && lang !== "en") {
-  return Astro.redirect("/es");
+if (!isValidLang(lang)) {
+  return Astro.redirect(`/${defaultLang}`);
 }
 
 ---

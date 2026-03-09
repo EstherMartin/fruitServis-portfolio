@@ -1,8 +1,10 @@
 ---
-import type { Menu } from "../types/menu";
-import { getLangData, getMenu } from "../utils/i18n";
+import type { Menu } from "../../types/menu";
+import { getMenu } from "../../utils/i18n/i18n";
 
-const { currentLang } = getLangData(Astro);
+const { lang } = Astro.params;
+const currentLang = lang as "es" | "en";
+
 const menu = await getMenu(currentLang) as Menu;
 
 const rawImages = import.meta.glob("/src/assets/carousel/*.{jpg,jpeg,png,webp}", {

@@ -1,0 +1,14 @@
+{
+  "copyright": "Todos los derechos reservados.",
+  "legal": [
+    {
+      "label": "Aviso legal",
+      "slug": "aviso-legal"
+    },
+    {
+      "label": "Privacidad",
+      "slug": "politica-privacidad"
+    }
+  ],
+  "credit": "Site by"
+}

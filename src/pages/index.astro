@@ -1,13 +1,19 @@
 ---
-export function getStaticPaths() {
-  return [
-    { params: { lang: "es" } },
-    { params: { lang: "en" } }
-  ];
-}
+import { detectBrowserLang } from "../utils/i18n/utils";
+import { defaultLang } from "../utils/i18n/config";
 
-const langHeader = Astro.request.headers.get("accept-language");
-const userLang = langHeader?.startsWith("en") ? "en" : "es";
+const cookieLang = Astro.cookies.get("lang")?.value;
 
-return Astro.redirect(`/${userLang}`);
+const browserLang = detectBrowserLang(
+  Astro.request.headers.get("accept-language")
+);
+
+const lang = cookieLang ?? browserLang ?? defaultLang;
+
+Astro.cookies.set("lang", lang, {
+  path: "/",
+  maxAge: 60 * 60 * 24 * 365 // 1 año
+});
+
+return Astro.redirect(`/${lang}`);
 ---

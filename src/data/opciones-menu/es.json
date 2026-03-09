@@ -10,19 +10,9 @@
       "label": "Empresa",
       "dropdown": [
         {
-          "title": "Contacto",
-          "description": "Horarios y datos de contacto",
-          "url": "#"
-        },
-        {
-          "title": "Trabaja con nosotros",
-          "description": "Únete a nuestro equipo",
-          "url": "#"
-        },
-        {
-          "title": "Canal de denuncias",
-          "description": "Canal confidencial interno",
-          "url": "#"
+          "title": "Contacto y oportunidades",
+          "description": "Atención al cliente, oportunidades laborales y canal ético de la empresa",
+          "url": "contacto"
         }
       ]
     },
@@ -30,14 +20,9 @@
       "label": "Nuestros productos",
       "dropdown": [
          {
-          "title": "Catálogo",
-          "description": "Toda nuestra gama de fruta fresca",
-          "url": "#"
-        },
-        {
-          "title": "Marcas y productores",
-          "description": "Trabajamos con los mejores del país",
-          "url": "#"
+          "title": "Productos y marcas",
+          "description": "Nuestra gama de fruta fresca y los productores y marcas que garantizan su calidad",
+          "url": "catalogo"
         }
       ]
     },
@@ -47,16 +32,15 @@
          {
           "title": "Nuestro compromiso",
           "description": "Agricultura sostenible y cero residuos",
-          "url": "#"
+          "url": "compromiso"
         },
         {
           "title": "El Campo",
           "description": "Trabajamos directamente con agricultores",
-          "url": "#"
+          "url": "campo"
         }
       ]
-    },
-    { "label": "Actualidad", "url": "#" }
+    }
   ],
   "language": {
     "label": "Español",

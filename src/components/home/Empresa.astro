@@ -1,0 +1,26 @@
+---
+
+import type { Company } from "../../types/empresa";
+
+import { getCompany } from "../../utils/i18n/i18n";
+
+const { lang } = Astro.params;
+const currentLang = lang as "es" | "en";
+
+const company = await getCompany(currentLang) as Company;
+
+---
+
+<section class="history">
+  <div class="container">
+    <div class="history-content">
+      <span class="history-tag">Nuestra trayectoria</span>
+      <h2>{company.history.title}</h2>
+      <h3>{company.history.subtitle}</h3>
+
+      {company.history.content.map((paragraph) => (
+        <p>{paragraph}</p>
+      ))}
+    </div>
+  </div>
+</section>

@@ -7,22 +7,12 @@
   },
   "mainMenu": [
     {
-  "label": "Company",
+      "label": "Company",
       "dropdown": [
         {
-          "title": "Contact",
-          "description": "Opening hours and contact details",
-          "url": "#"
-        },
-        {
-          "title": "Careers",
-          "description": "Join our team",
-          "url": "#"
-        },
-        {
-          "title": "Whistleblowing Channel",
-          "description": "Confidential internal reporting channel",
-          "url": "#"
+          "title": "Contact & Opportunities",
+          "description": "Customer support, career opportunities and access to our company’s ethics channel",
+          "url": "contacto"
         }
       ]
     },
@@ -30,35 +20,26 @@
       "label": "Our Products",
       "dropdown": [
         {
-          "title": "Catalog",
-          "description": "Our complete range of fresh fruit",
-          "url": "#"
-        },
-        {
-          "title": "Brands & Producers",
-          "description": "We work with the best in the country",
-          "url": "#"
+          "title": "Products & Brands",
+          "description": "Our fresh fruit range and the producers and brands that ensure its quality",
+          "url": "catalogo"
         }
       ]
     },
     {
-      "label": "Environment",
+      "label": "Sustainability",
       "dropdown": [
         {
           "title": "Our Commitment",
-          "description": "Sustainable agriculture and zero waste",
-          "url": "#"
+          "description": "Sustainable agriculture and zero waste practices",
+          "url": "compromiso"
         },
         {
-          "title": "The Field",
-          "description": "We work directly with farmers",
-          "url": "#"
+          "title": "Our Fields",
+          "description": "Working directly with farmers",
+          "url": "campo"
         }
       ]
-    },
-    {
-      "label": "News",
-      "url": "#"
     }
   ],
   "language": {
