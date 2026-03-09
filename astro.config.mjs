@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
-import sitemap from '@astrojs/sitemap';
+import vercel from '@astrojs/vercel/server';
 
 export default defineConfig({
-  integrations: [sitemap()],
+  output: 'server',
+  adapter: vercel(),
 });
