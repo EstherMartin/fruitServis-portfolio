@@ -1,0 +1,47 @@
+---
+import type { ContactSection } from "../../types/contacto";
+import { getContact } from "../../utils/i18n/i18n";
+
+const { lang } = Astro.params;
+const currentLang = lang as "es" | "en";
+
+const contact = await getContact(currentLang) as ContactSection;
+---
+
+<section class="contact">
+  <div class="contact-container">
+
+    <span class="contact-tag">{contact.header}</span>
+
+    <h2>{contact.title}</h2>
+
+    <h3>{contact.subtitle}</h3>
+
+  <div class="contact-info centered">
+    {contact.info.map((item) => (
+      <p>
+        <strong>{item.label}</strong><br />
+
+        {item.type === "email" && (
+          <a href={`mailto:${item.value}`}>{item.value}</a>
+        )}
+
+        {item.type === "phone" && (
+          <a href={`tel:${item.value}`}>{item.value}</a>
+        )}
+
+        {item.type === "text" && item.value}
+      </p>
+    ))}
+  </div>
+
+  <div class="contact-map">
+    <iframe
+      src={contact.mapUrl}
+      width="100%"
+      height="350"
+      style="border:0;"
+      loading="lazy">
+    </iframe>
+  </div>
+</section>

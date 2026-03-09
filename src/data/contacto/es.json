@@ -2,9 +2,22 @@
   "header": "Contacto",
   "title": "Hablemos",
   "subtitle": "Nuestro equipo comercial está a su disposición para cualquier consulta o solicitud de información.",
-  "info": {
-    "address": "Polígono Industrial La Vega, Parcela 12, 30007 Murcia, España",
-    "phone": "+34 968 000 000",
-    "email": "info@fruitservice.com"
-  }
+  "info": [
+    {
+      "label": "Dirección",
+      "value": "Polígono Industrial La Vega, Parcela 12, 30007 Murcia, España",
+      "type": "text"
+    },
+    {
+      "label": "Teléfono",
+      "value": "+34 968 000 000",
+      "type": "phone"
+    },
+    {
+      "label": "Email",
+      "value": "info@fruitservice.com",
+      "type": "email"
+    }
+  ],
+  "mapUrl": "https://www.google.com/maps?q=Murcia,+Spain&output=embed"
 }

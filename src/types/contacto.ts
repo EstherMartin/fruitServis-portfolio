@@ -3,8 +3,9 @@ export interface ContactSection {
   title: string;
   subtitle: string;
   info: {
-    address: string;
-    phone: string;
-    email: string;
-  };
+    label: string;
+    value: string;
+    type: "text" | "phone" | "email";
+  }[];
+  mapUrl: string;
 }

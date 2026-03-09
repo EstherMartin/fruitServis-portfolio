@@ -83,3 +83,11 @@ const contactFiles = import.meta.glob<{ default: ContactSection }>(
 );
 export const getContact = (lang: string) =>
   loadJsonByLang<ContactSection>(contactFiles, lang, "Contact");
+
+const formularioFiles = import.meta.glob<{ default: Formulario }>(
+  "/src/data/formulario/*.json",
+  { eager: true }
+);
+
+export const getFormulario = (lang: string) =>
+  loadJsonByLang<Formulario>(formularioFiles, lang, "Formulario");

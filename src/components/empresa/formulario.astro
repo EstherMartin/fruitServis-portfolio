@@ -1,0 +1,80 @@
+---
+import type { Formulario } from "../../types/formulario";
+import { getFormulario } from "../../utils/i18n/i18n";
+
+const { lang } = Astro.params;
+const currentLang = lang as "es" | "en";
+
+const formData = await getFormulario(currentLang) as Formulario;
+---
+
+<section class="formulario">
+  <div class="formulario-container">
+
+    <span class="formulario-tag">{formData.header}</span>
+    <h2>{formData.title}</h2>
+    <h3>{formData.subtitle}</h3>
+
+    <form>
+
+      <div class="form-group">
+        <label>{formData.fields.name}</label>
+        <input type="text" name="name" required />
+      </div>
+
+      <div class="form-group">
+        <label>{formData.fields.company}</label>
+        <input type="text" name="company" />
+      </div>
+
+      <div class="form-group">
+        <label>{formData.fields.email}</label>
+        <input type="email" name="email" required />
+      </div>
+
+      <div class="form-group">
+        <label>{formData.fields.phone}</label>
+        <input type="tel" name="phone" />
+      </div>
+
+      <div class="form-group">
+        <label>{formData.fields.subject}</label>
+        <select id="subject-select" required>
+          <option value="">--</option>
+          {formData.options.map(option => (
+            <option value={option.value}>{option.label}</option>
+          ))}
+        </select>
+      </div>
+
+      <div class="form-group" id="cv-upload" style="display:none;">
+        <label>{formData.fields.cv}</label>
+        <input type="file" />
+      </div>
+
+      <div class="form-group">
+        <label>{formData.fields.message}</label>
+        <textarea rows="5" required></textarea>
+      </div>
+
+      <button type="submit" class="btn-primary">
+        {formData.button}
+      </button>
+
+    </form>
+
+  </div>
+</section>
+
+<script>
+  const select = document.getElementById("subject-select") as HTMLSelectElement | null;
+  const upload = document.getElementById("cv-upload") as HTMLElement | null;
+
+  select?.addEventListener("change", (e) => {
+    const target = e.target as HTMLSelectElement;
+
+    if (upload) {
+      upload.style.display = target.value === "cv" ? "block" : "none";
+    }
+  });
+</script>

@@ -1,6 +1,7 @@
 ---
 import NavBar from "../../components/NavBar.astro";
-import Informacion from "../../components/empresa/Informacion.astro";
+import ContactoInformacion from "../../components/empresa/contacto.astro";
+import ContactoFormulario from "../../components/empresa/formulario.astro";
 import Footer from '../../components/Footer.astro';
 import Layout from '../../layouts/Layout.astro';
 
@@ -19,7 +20,8 @@ if (!isValidLang(lang)) {
 
 <Layout>
 	<NavBar />
-  <Informacion />
+  <ContactoInformacion />
+  <ContactoFormulario />
   <Footer />
 </Layout>
 

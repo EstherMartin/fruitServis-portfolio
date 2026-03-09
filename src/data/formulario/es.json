@@ -1,0 +1,21 @@
+{
+  "header": "Formulario",
+  "title": "Envíenos su consulta",
+  "subtitle": "Complete el siguiente formulario y nuestro equipo se pondrá en contacto con usted.",
+  "fields": {
+    "name": "Nombre completo",
+    "company": "Empresa (opcional)",
+    "email": "Email",
+    "phone": "Teléfono",
+    "subject": "Motivo de contacto",
+    "message": "Mensaje",
+    "cv": "Adjuntar CV"
+  },
+  "options": [
+    { "value": "info", "label": "Solicitud de información" },
+    { "value": "cv", "label": "Envío de currículum" },
+    { "value": "complaint", "label": "Queja o reclamación" },
+    { "value": "other", "label": "Otros" }
+  ],
+  "button": "Enviar mensaje"
+}
