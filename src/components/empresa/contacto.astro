@@ -9,39 +9,45 @@ const contact = await getContact(currentLang) as ContactSection;
 ---
 
 <section class="contact">
+
   <div class="contact-container">
-
     <span class="contact-tag">{contact.header}</span>
-
     <h2>{contact.title}</h2>
-
     <h3>{contact.subtitle}</h3>
-
-  <div class="contact-info centered">
-    {contact.info.map((item) => (
-      <p>
-        <strong>{item.label}</strong><br />
-
-        {item.type === "email" && (
-          <a href={`mailto:${item.value}`}>{item.value}</a>
-        )}
-
-        {item.type === "phone" && (
-          <a href={`tel:${item.value}`}>{item.value}</a>
-        )}
-
-        {item.type === "text" && item.value}
-      </p>
-    ))}
   </div>
+  <div class="contact-content">
+    
+    <div class="contact-info">
+      {contact.info.map((item) => (
+        <div class="contact-item">
+          <span class="contact-label">{item.label}</span>
 
-  <div class="contact-map">
-    <iframe
-      src={contact.mapUrl}
-      width="100%"
-      height="350"
-      style="border:0;"
-      loading="lazy">
-    </iframe>
+          {item.type === "email" && (
+            <a href={`mailto:${item.value}`} class="contact-value">
+              {item.value}
+            </a>
+          )}
+
+          {item.type === "phone" && (
+            <a href={`tel:${item.value}`} class="contact-value">
+              {item.value}
+            </a>
+          )}
+
+          {item.type === "text" && (
+            <span class="contact-value address">
+              {item.value}
+            </span>
+          )}
+        </div>
+      ))}
+    </div>
+
+    <div class="contact-map">
+      <iframe
+        src={contact.mapUrl}
+        loading="lazy">
+      </iframe>
+    </div>
   </div>
 </section>

@@ -7,7 +7,6 @@
     margin: 0 auto;
   }
 
-  /* Tag naranja igual que las otras secciones */
   .formulario-tag {
     display: inline-block;
     font-size: 0.8rem;
@@ -28,7 +27,6 @@
     margin-top: 0.5rem;
   }
 
-  /* Título igual que h2 de otras secciones */
   h2 {
     font-size: clamp(2.5rem, 4vw, 3.2rem);
     font-weight: 700;
@@ -37,7 +35,6 @@
     letter-spacing: -1px;
   }
 
-  /* Subtítulo */
   h3 {
     font-size: 1.3rem;
     color: var(--text-second);
@@ -46,12 +43,12 @@
     line-height: 1.5;
   }
 
-  /* Formulario */
   form {
     margin-top: 2rem;
     display: flex;
     flex-direction: column;
     gap: 1.8rem;
+    margin: 0 3rem;
   }
 
   .form-group {
