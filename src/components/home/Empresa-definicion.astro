@@ -29,9 +29,12 @@ const companyDefinition = await getCompanyDefinition(currentLang) as CompanyDefi
         ))}
       </ul>
 
-      <div class="definition-cta">
+      <div class="btn-group">
         {companyDefinition.cta.map((button, index) => (
-          <a href={buildUrl(currentLang, button.url)} class={`btn-${index === 0 ? 'primary' : 'secondary'}`}>
+          <a
+            href={buildUrl(currentLang, button.url)}
+            class={`btn ${index === 0 ? 'btn-primary' : 'btn-secondary'}`}
+          >
             {button.text}
           </a>
         ))}

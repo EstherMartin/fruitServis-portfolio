@@ -57,3 +57,29 @@ body {
   }
 }
 
+.btn-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 3rem;
+  justify-content: center;
+}
+
+.btn {
+  padding: 0.9rem 1.8rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: white;
+}
+
+.btn-secondary {
+  border: 2px solid var(--bg-dark);
+  color: var(--bg-dark);
+}
+

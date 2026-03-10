@@ -9,10 +9,13 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/node": "^9.5.5",
     "@astrojs/sitemap": "^3.7.0",
     "@astrojs/vercel": "^8.0.4",
+    "@vercel/analytics": "^1.6.1",
     "astro": "^5.17.1",
-    "astro-icon": "^1.1.5"
+    "astro-icon": "^1.1.5",
+    "resend": "^6.9.3"
   },
   "devDependencies": {
     "sass-embedded": "^1.97.3"

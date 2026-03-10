@@ -4,6 +4,7 @@ import type { CompanyDefinition } from "../../types/empresa-definicion";
 import type { Links } from "../../types/enlaces";
 import type { FooterData } from "../../types/footer";
 import type { ContactSection } from "../../types/contacto";
+import type { Formulario } from "../../types/formulario";
 
 export function getLangData(Astro: any) {
   const { lang } = Astro.params;

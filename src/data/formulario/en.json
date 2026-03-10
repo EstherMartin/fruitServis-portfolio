@@ -1,23 +1,21 @@
 {
-  "header": "Contact",
-  "title": "Let’s Talk",
-  "subtitle": "Our commercial team is available to assist you with any inquiry or product request.",
-  "info": [
-    {
-      "label": "Address",
-      "value": "La Vega Industrial Park, Plot 12, 30007 Murcia, Spain",
-      "type": "text"
-    },
-    {
-      "label": "Phone",
-      "value": "+34 968 000 000",
-      "type": "phone"
-    },
-    {
-      "label": "Email",
-      "value": "info@fruitservice.com",
-      "type": "email"
-    }
+  "header": "Form",
+  "title": "Send Us Your Inquiry",
+  "subtitle": "Please complete the form below and our team will get back to you as soon as possible.",
+  "fields": {
+    "name": "Full Name",
+    "company": "Company (optional)",
+    "email": "Email",
+    "phone": "Phone",
+    "subject": "Subject",
+    "message": "Message",
+    "cv": "Attach CV"
+  },
+  "options": [
+    { "value": "info", "label": "Information Request" },
+    { "value": "cv", "label": "Submit CV" },
+    { "value": "complaint", "label": "Complaint or Claim" },
+    { "value": "other", "label": "Other" }
   ],
-  "mapUrl": "https://www.google.com/maps?q=Murcia,+Spain&output=embed"
+  "button": "Send Message"
 }

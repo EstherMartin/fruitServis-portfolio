@@ -15,53 +15,52 @@ const formData = await getFormulario(currentLang) as Formulario;
     <h2>{formData.title}</h2>
     <h3>{formData.subtitle}</h3>
 
-    <form>
+  <form method="POST" action="/api/contact" enctype="multipart/form-data">
+    <div class="form-group">
+      <label>{formData.fields.subject}</label>
+      <select id="subject-select" name="motivo" required>
+        <option value="">--</option>
+        {formData.options.map(option => (
+          <option value={option.value}>{option.label}</option>
+        ))}
+      </select>
+    </div>
 
-      <div class="form-group">
-        <label>{formData.fields.name}</label>
-        <input type="text" name="name" required />
-      </div>
+    <div class="form-group">
+      <label>{formData.fields.name}</label>
+      <input type="text" name="nombre" required />
+    </div>
 
-      <div class="form-group">
-        <label>{formData.fields.company}</label>
-        <input type="text" name="company" />
-      </div>
+    <div class="form-group">
+      <label>{formData.fields.company}</label>
+      <input type="text" name="empresa" />
+    </div>
 
-      <div class="form-group">
-        <label>{formData.fields.email}</label>
-        <input type="email" name="email" required />
-      </div>
+    <div class="form-group">
+      <label>{formData.fields.email}</label>
+      <input type="email" name="email" required />
+    </div>
 
-      <div class="form-group">
-        <label>{formData.fields.phone}</label>
-        <input type="tel" name="phone" />
-      </div>
+    <div class="form-group">
+      <label>{formData.fields.phone}</label>
+      <input type="tel" name="telefono" />
+    </div>
 
-      <div class="form-group">
-        <label>{formData.fields.subject}</label>
-        <select id="subject-select" required>
-          <option value="">--</option>
-          {formData.options.map(option => (
-            <option value={option.value}>{option.label}</option>
-          ))}
-        </select>
-      </div>
+    <div class="form-group" id="cv-upload" style="display:none;">
+      <label>{formData.fields.cv}</label>
+      <input type="file" name="cv" />
+    </div>
 
-      <div class="form-group" id="cv-upload" style="display:none;">
-        <label>{formData.fields.cv}</label>
-        <input type="file" />
-      </div>
+    <div class="form-group">
+      <label>{formData.fields.message}</label>
+      <textarea name="mensaje" rows="5" required></textarea>
+    </div>
 
-      <div class="form-group">
-        <label>{formData.fields.message}</label>
-        <textarea rows="5" required></textarea>
-      </div>
+    <button type="submit" class="btn btn-primary">
+      {formData.button}
+    </button>
 
-      <button type="submit" class="btn-primary">
-        {formData.button}
-      </button>
-
-    </form>
+  </form>
 
   </div>
 </section>
