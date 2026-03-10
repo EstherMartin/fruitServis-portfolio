@@ -20,9 +20,14 @@
       "label": "Our Products",
       "dropdown": [
         {
-          "title": "Products & Brands",
-          "description": "Our fresh fruit range and the producers and brands that ensure its quality",
-          "url": "catalogo"
+          "title": "Products",
+          "description": "Discover our range of carefully selected fresh fruit adapted to each market",
+          "url": "productos"
+        },
+        {
+          "title": "Brands",
+          "description": "Explore the brands that represent our quality and commitment",
+          "url": "marcas"
         }
       ]
     },

@@ -1,0 +1,17 @@
+{
+  "header": "Our Brands",
+  "title": "Brands that represent our quality",
+  "subtitle": "We develop and market brands that convey trust, freshness, and professionalism.",
+  "brands": [
+    {
+      "name": "Fruit Select",
+      "description": "Premium brand aimed at international markets.",
+      "logo": "/images/marcas/fruit-select.png"
+    },
+    {
+      "name": "Campo Natural",
+      "description": "Line focused on freshness and sustainable production.",
+      "logo": "/images/marcas/campo-natural.png"
+    }
+  ]
+}

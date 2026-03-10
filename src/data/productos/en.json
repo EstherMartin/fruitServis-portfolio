@@ -1,0 +1,37 @@
+{
+  "header": "Our Products",
+  "title": "Fresh fruit carefully selected at origin",
+  "subtitle": "We work with a wide variety of fruits adapted to the quality standards and requirements of each market.",
+  "products": [
+    {
+      "name": "Peach",
+      "description": "Excellent size, balanced flavor and harvested at optimal ripeness.",
+      "image": "melocoton",
+      "season": "May - September"
+    },
+    {
+      "name": "Nectarine",
+      "description": "Firm texture and high sugar content, ideal for export markets.",
+      "image": "nectarina",
+      "season": "May - September"
+    },
+    {
+      "name": "Apricot",
+      "description": "Carefully selected production with quality control at origin.",
+      "image": "albaricoque",
+      "season": "April - June"
+    },
+    {
+      "name": "Orange",
+      "description": "Varieties adapted to national and international markets.",
+      "image": "naranja",
+      "season": "November - June"
+    },
+    {
+      "name": "Lemon",
+      "description": "High quality and excellent post-harvest preservation.",
+      "image": "limon",
+      "season": "All year round"
+    }
+  ]
+}

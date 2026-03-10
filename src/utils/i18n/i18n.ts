@@ -5,6 +5,8 @@ import type { Links } from "../../types/enlaces";
 import type { FooterData } from "../../types/footer";
 import type { ContactSection } from "../../types/contacto";
 import type { Formulario } from "../../types/formulario";
+import type { ProductsData } from "../../types/productos";
+import type { BrandsData } from "../../types/marcas";
 
 export function getLangData(Astro: any) {
   const { lang } = Astro.params;
@@ -92,3 +94,17 @@ const formularioFiles = import.meta.glob<{ default: Formulario }>(
 
 export const getFormulario = (lang: string) =>
   loadJsonByLang<Formulario>(formularioFiles, lang, "Formulario");
+
+const productsFiles = import.meta.glob<{ default: ProductsData }>(
+  "/src/data/productos/*.json",
+  { eager: true }
+);
+export const getProducts = (lang: string) =>
+  loadJsonByLang<ProductsData>(productsFiles, lang, "Products");
+
+const brandsFiles = import.meta.glob<{ default: BrandsData }>(
+  "/src/data/marcas/*.json",
+  { eager: true }
+);
+export const getBrands = (lang: string) =>
+  loadJsonByLang<BrandsData>(brandsFiles, lang, "Brands");

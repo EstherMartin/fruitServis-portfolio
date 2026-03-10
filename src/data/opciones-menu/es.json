@@ -19,10 +19,15 @@
     {
       "label": "Nuestros productos",
       "dropdown": [
-         {
-          "title": "Productos y marcas",
-          "description": "Nuestra gama de fruta fresca y los productores y marcas que garantizan su calidad",
-          "url": "catalogo"
+        {
+          "title": "Productos",
+          "description": "Descubre nuestra gama de fruta fresca seleccionada y adaptada a cada mercado",
+          "url": "productos"
+        },
+        {
+          "title": "Marcas",
+          "description": "Conoce las marcas que representan nuestra calidad y compromiso",
+          "url": "marcas"
         }
       ]
     },

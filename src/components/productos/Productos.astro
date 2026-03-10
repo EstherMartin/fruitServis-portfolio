@@ -1,0 +1,64 @@
+---
+import type { ProductsData } from "../../types/productos";
+import { getProducts } from "../../utils/i18n/i18n";
+
+const { lang } = Astro.params;
+const currentLang = lang as "es" | "en";
+
+const products = await getProducts(currentLang) as ProductsData;
+
+const rawImages = import.meta.glob(
+  "/src/assets/productos/*.{jpg,jpeg,png,webp}",
+  { eager: true, as: "url" }
+);
+
+const images: Record<string, string> = Object.fromEntries(
+  Object.entries(rawImages).map(([path, url]) => {
+    const name = path.replace(/^.*[\\/]/, "").replace(/\.[^/.]+$/, "");
+    return [name, url as string];
+  })
+);
+---
+
+<section class="productos">
+  
+  <span class="productos-tag">
+    {products.header}
+  </span>
+
+  <h1>
+    {products.title}
+  </h1>
+
+  <p class="productos-subtitle">
+    {products.subtitle}
+  </p>
+
+  <div class="products-grid">
+    {products.products.map(product => {
+
+      const imageSrc = images[product.image];
+
+      return (
+        <div class="product-card">
+          <div class="image-wrapper">
+            <img
+              src={imageSrc}
+              alt={product.name}
+              loading="lazy"
+            />
+            <span class="season">
+              {product.season}
+            </span>
+          </div>
+
+          <div class="content">
+            <h3>{product.name}</h3>
+            <p>{product.description}</p>
+          </div>
+        </div>
+      );
+    })}
+  </div>
+
+</section>

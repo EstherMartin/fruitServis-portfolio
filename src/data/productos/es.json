@@ -1,0 +1,37 @@
+{
+  "header": "Nuestros productos",
+  "title": "Fruta fresca seleccionada en origen",
+  "subtitle": "Trabajamos una amplia variedad de frutas adaptadas a los estándares de calidad y exigencias de cada mercado.",
+  "products": [
+    {
+      "name": "Melocotón",
+      "description": "Fruto de excelente calibre, sabor equilibrado y recolección en su punto óptimo.",
+      "image": "melocoton",
+      "season": "Mayo - Septiembre"
+    },
+    {
+      "name": "Nectarina",
+      "description": "Textura firme y alto contenido en azúcar, ideal para exportación.",
+      "image": "nectarina",
+      "season": "Mayo - Septiembre"
+    },
+    {
+      "name": "Albaricoque",
+      "description": "Producción seleccionada con control de calidad en origen.",
+      "image": "albaricoque",
+      "season": "Abril - Junio"
+    },
+    {
+      "name": "Naranja",
+      "description": "Variedades adaptadas a mercado nacional e internacional.",
+      "image": "naranja",
+      "season": "Noviembre - Junio"
+    },
+    {
+      "name": "Limón",
+      "description": "Alta calidad y excelente conservación postcosecha.",
+      "image": "limon",
+      "season": "Todo el año"
+    }
+  ]
+}
