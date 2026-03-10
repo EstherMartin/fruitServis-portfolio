@@ -4,7 +4,6 @@ import { getFormulario } from "../../utils/i18n/i18n";
 
 const { lang } = Astro.params;
 const currentLang = lang as "es" | "en";
-
 const formData = await getFormulario(currentLang) as Formulario;
 ---
 
@@ -15,65 +14,56 @@ const formData = await getFormulario(currentLang) as Formulario;
     <h2>{formData.title}</h2>
     <h3>{formData.subtitle}</h3>
 
-  <form method="POST" action="/api/contact" enctype="multipart/form-data">
-    <div class="form-group">
-      <label>{formData.fields.subject}</label>
-      <select id="subject-select" name="motivo" required>
-        <option value="">--</option>
-        {formData.options.map(option => (
-          <option value={option.value}>{option.label}</option>
-        ))}
-      </select>
-    </div>
+    <form id="contact-form" method="POST" action="/api/contact" enctype="multipart/form-data">
 
-    <div class="form-group">
-      <label>{formData.fields.name}</label>
-      <input type="text" name="nombre" required />
-    </div>
+      <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" />
 
-    <div class="form-group">
-      <label>{formData.fields.company}</label>
-      <input type="text" name="empresa" />
-    </div>
+      <div class="form-group">
+        <label>{formData.fields.subject}</label>
+        <select id="subject-select" name="motivo" required>
+          <option value="">--</option>
+          {formData.options.map(option => (
+            <option value={option.value}>{option.label}</option>
+          ))}
+        </select>
+      </div>
 
-    <div class="form-group">
-      <label>{formData.fields.email}</label>
-      <input type="email" name="email" required />
-    </div>
+      <div class="form-group">
+        <label>{formData.fields.name}</label>
+        <input type="text" name="nombre" required />
+      </div>
 
-    <div class="form-group">
-      <label>{formData.fields.phone}</label>
-      <input type="tel" name="telefono" />
-    </div>
+      <div class="form-group">
+        <label>{formData.fields.company}</label>
+        <input type="text" name="empresa" />
+      </div>
 
-    <div class="form-group" id="cv-upload" style="display:none;">
-      <label>{formData.fields.cv}</label>
-      <input type="file" name="cv" />
-    </div>
+      <div class="form-group">
+        <label>{formData.fields.email}</label>
+        <input type="email" name="email" required />
+      </div>
 
-    <div class="form-group">
-      <label>{formData.fields.message}</label>
-      <textarea name="mensaje" rows="5" required></textarea>
-    </div>
+      <div class="form-group">
+        <label>{formData.fields.phone}</label>
+        <input type="tel" name="telefono" />
+      </div>
 
-    <button type="submit" class="btn btn-primary">
-      {formData.button}
-    </button>
+      <div class="form-group" id="cv-upload" style="display:none;">
+        <label>{formData.fields.cv}</label>
+        <input type="file" name="cv" accept=".pdf" />
+      </div>
 
-  </form>
+      <div class="form-group">
+        <label>{formData.fields.message}</label>
+        <textarea name="mensaje" rows="5" required></textarea>
+      </div>
 
+      <button type="submit" class="btn btn-primary">
+        {formData.button}
+      </button>
+
+    </form>
   </div>
 </section>
 
-<script>
-  const select = document.getElementById("subject-select") as HTMLSelectElement | null;
-  const upload = document.getElementById("cv-upload") as HTMLElement | null;
-
-  select?.addEventListener("change", (e) => {
-    const target = e.target as HTMLSelectElement;
-
-    if (upload) {
-      upload.style.display = target.value === "cv" ? "block" : "none";
-    }
-  });
-</script>
+<script type="module" src="/src/scripts/contact-form.ts"></script>
