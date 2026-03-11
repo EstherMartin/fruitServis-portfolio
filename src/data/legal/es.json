@@ -1,0 +1,89 @@
+{
+  "avisoLegal": {
+    "title": "Aviso Legal",
+    "sections": {
+      "identificacion": {
+        "title": "Identificación del titular",
+        "empresa": "Fruit Service S.L.",
+        "cifLabel": "CIF",
+        "cif": "B-12345678",
+        "direccionLabel": "Dirección",
+        "direccion": "Polígono Industrial La Vega, Parcela 12, 30007 Murcia, España",
+        "emailLabel": "Email",
+        "email": "info@fruitservice.com",
+        "telefonoLabel": "Teléfono",
+        "telefono": "+34 968 000 000",
+        "registro": "Inscrita en el Registro Mercantil de Murcia, Tomo 1234, Folio 56, Hoja MU-7890"
+      },
+      "objeto": {
+        "title": "Objeto",
+        "text": "El presente sitio web tiene como finalidad ofrecer información sobre los servicios de producción, comercialización y distribución de fruta fresca de Fruit Service S.L."
+      },
+      "propiedadIntelectual": {
+        "title": "Propiedad Intelectual",
+        "text": "Todos los contenidos del sitio web, incluyendo textos, imágenes, logotipos, diseño y código fuente, están protegidos por derechos de propiedad intelectual e industrial y son titularidad de Fruit Service S.L. o de terceros autorizados."
+      },
+      "responsabilidad": {
+        "title": "Responsabilidad",
+        "text": "Fruit Service S.L. no se responsabiliza del mal uso que se realice de los contenidos del sitio web ni de los daños que puedan derivarse del acceso o uso de la información publicada."
+      }
+    }
+  },
+
+  "privacidad": {
+    "title": "Política de Privacidad",
+    "sections": {
+      "responsable": {
+        "title": "Responsable del tratamiento",
+        "text": "Fruit Service S.L. es el responsable del tratamiento de los datos personales recopilados a través de este sitio web."
+      },
+      "finalidad": {
+        "title": "Finalidad del tratamiento",
+        "items": [
+          "Gestionar las consultas realizadas a través del formulario de contacto.",
+          "Atender solicitudes de información comercial.",
+          "Cumplir con las obligaciones legales aplicables."
+        ]
+      },
+      "legitimacion": {
+        "title": "Legitimación",
+        "text": "La base legal para el tratamiento de los datos es el consentimiento del interesado al enviar el formulario y el interés legítimo en responder a las consultas."
+      },
+      "destinatarios": {
+        "title": "Destinatarios",
+        "text": "No se cederán datos a terceros salvo obligación legal."
+      },
+      "derechos": {
+        "title": "Derechos del usuario",
+        "text": "El usuario puede ejercer sus derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad enviando una solicitud a info@fruitservice.com."
+      },
+      "conservacion": {
+        "title": "Conservación de los datos",
+        "text": "Los datos personales se conservarán durante el tiempo necesario para cumplir con la finalidad para la que fueron recogidos y para determinar posibles responsabilidades legales."
+      }
+    }
+  },
+
+  "cookies": {
+    "title": "Política de Cookies",
+    "intro": "Este sitio web utiliza cookies propias y de terceros con la finalidad de mejorar la experiencia de navegación del usuario y realizar análisis estadísticos.",
+    "sections": {
+      "queSon": {
+        "title": "¿Qué son las cookies?",
+        "text": "Las cookies son pequeños archivos de texto que se almacenan en el dispositivo del usuario cuando visita una página web. Permiten recordar información sobre la visita para facilitar la navegación y mejorar la experiencia."
+      },
+      "tipos": {
+        "title": "Tipos de cookies utilizadas",
+        "items": [
+          "Cookies técnicas: necesarias para el funcionamiento básico del sitio web.",
+          "Cookies analíticas: permiten medir y analizar el comportamiento de los usuarios en el sitio web.",
+          "Cookies de terceros: gestionadas por servicios externos como Google Analytics."
+        ]
+      },
+      "gestion": {
+        "title": "Gestión de cookies",
+        "text": "El usuario puede configurar su navegador para permitir, bloquear o eliminar las cookies instaladas en su dispositivo. La desactivación de algunas cookies puede afectar al correcto funcionamiento del sitio web."
+      }
+    }
+  }
+}

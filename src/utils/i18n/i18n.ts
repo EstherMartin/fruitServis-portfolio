@@ -9,6 +9,7 @@ import type { ProductsData } from "../../types/productos";
 import type { BrandsData } from "../../types/marcas";
 import type { CommitmentData } from "../../types/compromiso";
 import type { CampoData } from "../../types/campo";
+import type { LegalData } from "../../types/legal";
 
 export function getLangData(Astro: any) {
   const { lang } = Astro.params;
@@ -126,3 +127,11 @@ const campoFiles = import.meta.glob<{ default: CampoData }>(
 
 export const getCampo = (lang: string) =>
   loadJsonByLang<CampoData>(campoFiles, lang, "Campo");
+
+const legalFiles = import.meta.glob<{ default: LegalData }>(
+  "/src/data/legal/*.json",
+  { eager: true }
+);
+
+export const getLegal = (lang: string) =>
+  loadJsonByLang<LegalData>(legalFiles, lang, "Legal");

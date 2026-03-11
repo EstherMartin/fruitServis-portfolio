@@ -1,0 +1,89 @@
+{
+  "avisoLegal": {
+    "title": "Legal Notice",
+    "sections": {
+      "identificacion": {
+        "title": "Company Identification",
+        "empresa": "Fruit Service S.L.",
+        "cifLabel": "Tax ID",
+        "cif": "B-12345678",
+        "direccionLabel": "Address",
+        "direccion": "La Vega Industrial Estate, Plot 12, 30007 Murcia, Spain",
+        "emailLabel": "Email",
+        "email": "info@fruitservice.com",
+        "telefonoLabel": "Phone",
+        "telefono": "+34 968 000 000",
+        "registro": "Registered in the Mercantile Registry of Murcia, Volume 1234, Folio 56, Sheet MU-7890"
+      },
+      "objeto": {
+        "title": "Purpose",
+        "text": "This website aims to provide information about the production, commercialization, and distribution services of fresh fruit offered by Fruit Service S.L."
+      },
+      "propiedadIntelectual": {
+        "title": "Intellectual Property",
+        "text": "All website content, including texts, images, logos, design, and source code, is protected by intellectual and industrial property rights and belongs to Fruit Service S.L. or authorized third parties."
+      },
+      "responsabilidad": {
+        "title": "Liability",
+        "text": "Fruit Service S.L. shall not be held liable for misuse of website content or for any damages arising from access to or use of the published information."
+      }
+    }
+  },
+
+  "privacidad": {
+    "title": "Privacy Policy",
+    "sections": {
+      "responsable": {
+        "title": "Data Controller",
+        "text": "Fruit Service S.L. is the controller responsible for processing personal data collected through this website."
+      },
+      "finalidad": {
+        "title": "Purpose of Processing",
+        "items": [
+          "Manage inquiries submitted through the contact form.",
+          "Respond to commercial information requests.",
+          "Comply with applicable legal obligations."
+        ]
+      },
+      "legitimacion": {
+        "title": "Legal Basis",
+        "text": "The legal basis for data processing is the data subject's consent when submitting the form and the legitimate interest in responding to inquiries."
+      },
+      "destinatarios": {
+        "title": "Recipients",
+        "text": "Data will not be transferred to third parties except where required by law."
+      },
+      "derechos": {
+        "title": "User Rights",
+        "text": "Users may exercise their rights of access, rectification, erasure, objection, restriction of processing, and portability by contacting info@fruitservice.com."
+      },
+      "conservacion": {
+        "title": "Data Retention",
+        "text": "Personal data will be retained for as long as necessary to fulfill the purposes for which they were collected and to determine any potential legal liabilities."
+      }
+    }
+  },
+
+  "cookies": {
+    "title": "Cookie Policy",
+    "intro": "This website uses its own and third-party cookies to improve the user browsing experience and perform statistical analysis.",
+    "sections": {
+      "queSon": {
+        "title": "What are cookies?",
+        "text": "Cookies are small text files stored on the user's device when visiting a website. They allow information about the visit to be remembered in order to facilitate navigation and improve the user experience."
+      },
+      "tipos": {
+        "title": "Types of cookies used",
+        "items": [
+          "Technical cookies: necessary for the basic functioning of the website.",
+          "Analytical cookies: allow measurement and analysis of user behavior on the website.",
+          "Third-party cookies: managed by external services such as Google Analytics."
+        ]
+      },
+      "gestion": {
+        "title": "Cookie management",
+        "text": "Users can configure their browser to allow, block, or delete cookies installed on their device. Disabling some cookies may affect the proper functioning of the website."
+      }
+    }
+  }
+}

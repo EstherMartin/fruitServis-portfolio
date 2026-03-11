@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import NuestroCompromiso from "../../components/sostenibilidad/Compromiso.astro";
+import PrivacidadLegal from '../../components/Privacidad.astro';
 
 import { generateStaticPaths } from "../../utils/i18n/utils";
 import { isValidLang, defaultLang } from "../../utils/i18n/config";
@@ -10,11 +10,9 @@ export const getStaticPaths = generateStaticPaths;
 const { lang } = Astro.params;
 
 if (!isValidLang(lang)) {
-  return Astro.redirect(`/${defaultLang}`);
+  return Astro.redirect(`/${defaultLang}`)
 }
-
 ---
-
 <Layout>
-  <NuestroCompromiso/>
+  <PrivacidadLegal/>
 </Layout>

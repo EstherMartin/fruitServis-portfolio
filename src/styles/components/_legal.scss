@@ -1,0 +1,61 @@
+.legal {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 0 6rem;
+}
+
+.legal-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.legal-tag::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--accent);
+  margin-top: 0.5rem;
+}
+
+.legal h1 {
+  font-size: clamp(2.2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: var(--bg-dark);
+  margin-bottom: 3rem;
+}
+
+.legal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.legal-block h3 {
+  font-size: 1.3rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.legal-block p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-body);
+  margin-bottom: 0.6rem;
+}
+
+.legal-block ul {
+  padding-left: 1.2rem;
+}
+
+.legal-block li {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-body);
+  margin-bottom: 0.6rem;
+}

@@ -1,0 +1,47 @@
+---
+import type { LegalData } from "../types/legal";
+import { getLegal } from "../utils/i18n/i18n";
+
+const { lang } = Astro.params;
+const currentLang = lang as "es" | "en";
+
+const data = await getLegal(currentLang) as LegalData;
+const aviso = data.avisoLegal;
+const sections = aviso.sections;
+---
+
+<section class="legal">
+
+  <span class="legal-tag">{aviso.title}</span>
+  <h1>{aviso.title}</h1>
+
+  <div class="legal-content">
+
+    <div class="legal-block">
+      <h3>{sections.identificacion.title}</h3>
+      <p><strong>{sections.identificacion.empresa}</strong></p>
+      <p><strong>{sections.identificacion.cifLabel}:</strong> {sections.identificacion.cif}</p>
+      <p><strong>{sections.identificacion.direccionLabel}:</strong> {sections.identificacion.direccion}</p>
+      <p><strong>{sections.identificacion.emailLabel}:</strong> {sections.identificacion.email}</p>
+      <p><strong>{sections.identificacion.telefonoLabel}:</strong> {sections.identificacion.telefono}</p>
+      <p>{sections.identificacion.registro}</p>
+    </div>
+
+    <div class="legal-block">
+      <h3>{sections.objeto.title}</h3>
+      <p>{sections.objeto.text}</p>
+    </div>
+
+    <div class="legal-block">
+      <h3>{sections.propiedadIntelectual.title}</h3>
+      <p>{sections.propiedadIntelectual.text}</p>
+    </div>
+
+    <div class="legal-block">
+      <h3>{sections.responsabilidad.title}</h3>
+      <p>{sections.responsabilidad.text}</p>
+    </div>
+
+  </div>
+
+</section>

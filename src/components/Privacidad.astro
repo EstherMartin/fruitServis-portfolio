@@ -1,0 +1,56 @@
+---
+import type { LegalData } from "../types/legal";
+import { getLegal } from "../utils/i18n/i18n";
+
+const { lang } = Astro.params;
+const currentLang = lang as "es" | "en";
+
+const data = await getLegal(currentLang) as LegalData;
+const privacidad = data.privacidad;
+const sections = privacidad.sections;
+---
+
+<section class="legal">
+
+  <span class="legal-tag">{privacidad.title}</span>
+  <h1>{privacidad.title}</h1>
+
+  <div class="legal-content">
+
+    <div class="legal-block">
+      <h3>{sections.responsable.title}</h3>
+      <p>{sections.responsable.text}</p>
+    </div>
+
+    <div class="legal-block">
+      <h3>{sections.finalidad.title}</h3>
+      <ul>
+        {sections.finalidad.items.map(item => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="legal-block">
+      <h3>{sections.legitimacion.title}</h3>
+      <p>{sections.legitimacion.text}</p>
+    </div>
+
+    <div class="legal-block">
+      <h3>{sections.destinatarios.title}</h3>
+      <p>{sections.destinatarios.text}</p>
+    </div>
+
+    <div class="legal-block">
+      <h3>{sections.derechos.title}</h3>
+      <p>{sections.derechos.text}</p>
+    </div>
+
+    <div class="legal-block">
+      <h3>{sections.conservacion.title}</h3>
+      <p>{sections.conservacion.text}</p>
+    </div>
+
+  </div>
+
+</section>

@@ -1,0 +1,46 @@
+---
+
+import type { LegalData } from "../types/legal";
+import { getLegal } from "../utils/i18n/i18n";
+
+const { lang } = Astro.params;
+const currentLang = lang as "es" | "en";
+
+const data = await getLegal(currentLang) as LegalData;
+const cookies = data.cookies;
+const sections = cookies.sections;
+---
+
+<section class="legal">
+
+  <span class="legal-tag">{cookies.title}</span>
+  <h1>{cookies.title}</h1>
+
+  <div class="legal-content">
+
+    <div class="legal-block">
+      <p>{cookies.intro}</p>
+    </div>
+
+    <div class="legal-block">
+      <h3>{sections.queSon.title}</h3>
+      <p>{sections.queSon.text}</p>
+    </div>
+
+    <div class="legal-block">
+      <h3>{sections.tipos.title}</h3>
+      <ul>
+        {sections.tipos.items?.map(item => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="legal-block">
+      <h3>{sections.gestion.title}</h3>
+      <p>{sections.gestion.text}</p>
+    </div>
+
+  </div>
+
+</section>
