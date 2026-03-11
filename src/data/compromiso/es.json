@@ -1,0 +1,26 @@
+{
+  "header": "Nuestro compromiso",
+  "heroTitle": "Cuidamos el origen",
+  "heroSubtitle": "Trabajamos cada día para reducir nuestro impacto ambiental y construir un modelo agrícola sostenible.",
+  "pillars": [
+    {
+      "title": "Energía limpia",
+      "text": "Implantamos sistemas de autoconsumo energético y optimizamos recursos para reducir nuestra huella de carbono."
+    },
+    {
+      "title": "Innovación responsable",
+      "text": "Invertimos en tecnología que mejora la eficiencia productiva y minimiza desperdicios."
+    },
+    {
+      "title": "Aprovechamiento integral",
+      "text": "Aplicamos modelos de economía circular que maximizan el uso del producto y reducen mermas."
+    }
+  ],
+  "quote": "El futuro del sector hortofrutícola depende de decisiones responsables tomadas hoy.",
+  "metrics": [
+    { "value": "-30%", "label": "Reducción estimada de huella energética" },
+    { "value": "100%", "label": "Trazabilidad en procesos de producción" },
+    { "value": "0%", "label": "Desperdicio comercial no aprovechado" },
+    { "value": "24/7", "label": "Control de calidad continuo" }
+  ]
+}

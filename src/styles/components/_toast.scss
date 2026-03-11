@@ -16,7 +16,7 @@
   color: white;
   font-size: 14px;
   font-weight: 500;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 30px var(--box-shadow);
   opacity: 0;
   transform: translateY(20px);
   animation: slideIn 0.3s ease forwards;

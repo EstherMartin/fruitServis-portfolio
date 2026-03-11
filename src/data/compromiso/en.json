@@ -1,0 +1,26 @@
+{
+  "header": "Our Commitment",
+  "heroTitle": "We Care for the Origin",
+  "heroSubtitle": "We work every day to reduce our environmental impact and build a sustainable agricultural model.",
+  "pillars": [
+    {
+      "title": "Clean Energy",
+      "text": "We implement self-consumption energy systems and optimize resources to reduce our carbon footprint."
+    },
+    {
+      "title": "Responsible Innovation",
+      "text": "We invest in technology that improves production efficiency while minimizing waste."
+    },
+    {
+      "title": "Comprehensive Utilization",
+      "text": "We apply circular economy models that maximize product use and reduce losses."
+    }
+  ],
+  "quote": "The future of the horticultural sector depends on responsible decisions made today.",
+  "metrics": [
+    { "value": "-30%", "label": "Estimated reduction in energy footprint" },
+    { "value": "100%", "label": "Traceability across production processes" },
+    { "value": "0%", "label": "Commercial product waste" },
+    { "value": "24/7", "label": "Continuous quality control" }
+  ]
+}

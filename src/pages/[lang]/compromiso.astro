@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import NuestroCompromiso from "../../components/medio-ambiente/Compromiso.astro";
 
 import { generateStaticPaths } from "../../utils/i18n/utils";
 import { isValidLang, defaultLang } from "../../utils/i18n/config";
@@ -15,4 +16,5 @@ if (!isValidLang(lang)) {
 ---
 
 <Layout>
+  <NuestroCompromiso/>
 </Layout>

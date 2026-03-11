@@ -1,0 +1,48 @@
+---
+import type { CommitmentData } from "../../types/compromiso";
+import { getCommitment } from "../../utils/i18n/i18n";
+import energiaLimpia from "../../assets/medio-ambiente/energia-limpia.jpg";
+import { Image } from "astro:assets";
+
+
+const { lang } = Astro.params;
+const currentLang = lang as "es" | "en";
+
+const data = await getCommitment(currentLang) as CommitmentData;
+---
+
+<section class="compromiso-modern">
+
+  <div class="compromiso-hero">
+    <span class="compromiso-tag">{data.header}</span>
+    <h1>{data.heroTitle}</h1>
+    <p>{data.heroSubtitle}</p>
+  </div>
+
+  <div class="compromiso-pillars">
+    {data.pillars.map(pillar => (
+      <div class="pillar-card">
+        <h3>{pillar.title}</h3>
+        <p>{pillar.text}</p>
+      </div>
+    ))}
+  </div>
+
+  <div class="compromiso-image-divider">
+    <Image src={energiaLimpia} alt="Compromiso sostenible" />
+  </div>
+
+  <div class="compromiso-quote">
+    <p>{data.quote}</p>
+  </div>
+
+  <div class="compromiso-metrics">
+    {data.metrics.map(metric => (
+      <div class="metric">
+        <span class="metric-value">{metric.value}</span>
+        <span class="metric-label">{metric.label}</span>
+      </div>
+    ))}
+  </div>
+
+</section>

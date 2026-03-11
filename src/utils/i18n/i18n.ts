@@ -7,6 +7,8 @@ import type { ContactSection } from "../../types/contacto";
 import type { Formulario } from "../../types/formulario";
 import type { ProductsData } from "../../types/productos";
 import type { BrandsData } from "../../types/marcas";
+import type { CommitmentData } from "../../types/compromiso";
+import type { CampoData } from "../../types/campo";
 
 export function getLangData(Astro: any) {
   const { lang } = Astro.params;
@@ -108,3 +110,19 @@ const brandsFiles = import.meta.glob<{ default: BrandsData }>(
 );
 export const getBrands = (lang: string) =>
   loadJsonByLang<BrandsData>(brandsFiles, lang, "Brands");
+
+const commitmentFiles = import.meta.glob<{ default: CommitmentData }>(
+  "/src/data/compromiso/*.json",
+  { eager: true }
+);
+
+export const getCommitment = (lang: string) =>
+  loadJsonByLang<CommitmentData>(commitmentFiles, lang, "Commitment");
+
+const campoFiles = import.meta.glob<{ default: CampoData }>(
+  "/src/data/campo/*.json",
+  { eager: true }
+);
+
+export const getCampo = (lang: string) =>
+  loadJsonByLang<CampoData>(campoFiles, lang, "Campo");

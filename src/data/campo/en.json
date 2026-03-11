@@ -1,0 +1,60 @@
+{
+  "header": "Our Fields",
+  "heroTitle": "From Field to Consumer",
+  "heroSubtitle": "We control every stage of the production process, ensuring quality, sustainability, and full traceability.",
+  "sections": [
+    {
+      "title": "Responsible Production",
+      "text": [
+        "We apply sustainable agronomic criteria in pest and disease control, prioritizing environmentally respectful methods.",
+        "We promote biodiversity and natural balance across our farms as part of a responsible and committed agricultural model."
+      ],
+      "image": "campo-produccion"
+    },
+    {
+      "title": "Production Systems",
+      "text": [
+        "We integrate advanced agricultural technology to optimize water and energy resource usage.",
+        "Our crops comply with leading international quality and food safety standards."
+      ],
+      "image": "campo-sistemas"
+    },
+    {
+      "title": "Selection and Harvesting",
+      "text": [
+        "Harvesting takes place at the optimal stage of ripeness to preserve flavor, texture, and shelf life.",
+        "Our technical team continuously monitors each plot throughout the season."
+      ],
+      "image": "campo-recoleccion"
+    },
+    {
+      "title": "Traceability",
+      "text": [
+        "We ensure full product traceability from origin to final customer, guaranteeing transparency and control at every stage."
+      ],
+      "image": "campo-trazabilidad"
+    },
+    {
+      "title": "Handling and Packaging",
+      "text": [
+        "Automated processes and continuous quality controls ensure consistency and excellence in the final product."
+      ],
+      "image": "campo-confeccion"
+    },
+    {
+      "title": "Distribution",
+      "text": [
+        "Our logistics operations are designed to efficiently serve national and international markets while maintaining cold chain integrity and product quality."
+      ],
+      "image": "campo-expedicion"
+    },
+    {
+      "title": "The Consumer",
+      "text": [
+        "Our ultimate commitment is to deliver fresh, safe, and premium-quality fruit tailored to the demands of each market."
+      ],
+      "image": "campo-consumidor"
+    }
+  ],
+  "certificationsTitle": "Certifications"
+}

@@ -1,0 +1,68 @@
+---
+import type { CampoData } from "../../types/campo";
+import { getCampo } from "../../utils/i18n/i18n";
+import { Image } from "astro:assets";
+import globalgap from "../../assets/certificados/globalgap.png";
+import grasp from "../../assets/certificados/grasp.png";
+import ifs from "../../assets/certificados/ifs.jpg";
+
+const { lang } = Astro.params;
+const currentLang = lang as "es" | "en";
+
+const data = await getCampo(currentLang) as CampoData;
+
+const rawImages = import.meta.glob(
+  "/src/assets/campo/*.{jpg,jpeg,png,webp}",
+  { eager: true, query: "?url", import: "default" }
+);
+
+const images: Record<string, string> = Object.fromEntries(
+  Object.entries(rawImages).map(([path, url]) => {
+    const name = path.replace(/^.*[\\/]/, "").replace(/\.[^/.]+$/, "");
+    return [name, url as string];
+  })
+);
+
+---
+
+<section class="campo">
+
+  <div class="campo-hero">
+    <span class="campo-tag">{data.header}</span>
+    <h1>{data.heroTitle}</h1>
+    <p>{data.heroSubtitle}</p>
+  </div>
+
+  <div class="campo-sections">
+    {data.sections.map((section, index) => {
+
+      const imageSrc = images[section.image];
+      const reverse = index % 2 !== 0;
+
+      return (
+        <div class={`campo-row ${reverse ? "reverse" : ""}`}>
+
+          <div class="campo-text">
+            <h2>{section.title}</h2>
+            {section.text.map(p => <p>{p}</p>)}
+          </div>
+
+          <div class="campo-image">
+            <img src={imageSrc} alt={section.title} loading="lazy" />
+          </div>
+
+        </div>
+      );
+    })}
+  </div>
+
+ <div class="campo-certificados">
+  <h3>{data.certificationsTitle}</h3>
+  <div class="certificados-grid">
+    <Image src={globalgap} alt="Global GAP" width={120} />
+    <Image src={grasp} alt="GRASP" width={120} />
+    <Image src={ifs} alt="IFS" width={120} />
+  </div>
+</div>
+
+</section>

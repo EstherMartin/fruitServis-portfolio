@@ -1,0 +1,60 @@
+{
+  "header": "Nuestros campos",
+  "heroTitle": "Del campo al consumidor",
+  "heroSubtitle": "Controlamos cada fase del proceso productivo garantizando calidad, sostenibilidad y trazabilidad completa.",
+  "sections": [
+    {
+      "title": "Producción responsable",
+      "text": [
+        "Aplicamos criterios agronómicos sostenibles en el control de plagas y enfermedades, priorizando métodos respetuosos con el entorno.",
+        "Fomentamos la biodiversidad y el equilibrio natural en nuestras fincas como parte de un modelo agrícola responsable y comprometido."
+      ],
+      "image": "campo-produccion"
+    },
+    {
+      "title": "Sistemas de producción",
+      "text": [
+        "Integramos tecnología agrícola avanzada para optimizar el uso de recursos hídricos y energéticos.",
+        "Nuestros cultivos cumplen con los principales estándares internacionales de calidad y seguridad alimentaria."
+      ],
+      "image": "campo-sistemas"
+    },
+    {
+      "title": "Selección y recolección",
+      "text": [
+        "La recolección se realiza en el punto óptimo de maduración para preservar sabor, textura y vida útil.",
+        "Nuestro equipo técnico supervisa de forma continua cada parcela durante la campaña."
+      ],
+      "image": "campo-recoleccion"
+    },
+    {
+      "title": "Trazabilidad",
+      "text": [
+        "Garantizamos la trazabilidad completa del producto desde su origen hasta el cliente final, asegurando transparencia y control en cada etapa."
+      ],
+      "image": "campo-trazabilidad"
+    },
+    {
+      "title": "Manipulación y confección",
+      "text": [
+        "Procesos automatizados y controles de calidad permanentes garantizan la homogeneidad y excelencia del producto final."
+      ],
+      "image": "campo-confeccion"
+    },
+    {
+      "title": "Expedición",
+      "text": [
+        "Nuestra logística está diseñada para responder con eficiencia a mercados nacionales e internacionales, manteniendo la cadena de frío y la calidad del producto."
+      ],
+      "image": "campo-expedicion"
+    },
+    {
+      "title": "El consumidor",
+      "text": [
+        "Nuestro compromiso culmina en ofrecer fruta fresca, segura y de máxima calidad, adaptada a las exigencias de cada mercado."
+      ],
+      "image": "campo-consumidor"
+    }
+  ],
+  "certificationsTitle": "Certificaciones"
+}
