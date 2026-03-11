@@ -56,8 +56,10 @@ const images: Record<string, string> = Object.fromEntries(
     })}
   </div>
 
- <div class="campo-certificados">
-  <h3>{data.certificationsTitle}</h3>
+  <div class="campo-certificados">
+  <div class="campo-hero">
+    <span class="campo-tag">{data.certificationsTitle}</span>
+  </div>
   <div class="certificados-grid">
     <Image src={globalgap} alt="Global GAP" width={120} />
     <Image src={grasp} alt="GRASP" width={120} />

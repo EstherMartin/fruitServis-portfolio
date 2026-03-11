@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PCookies from '../../components/Cookies.astro';
+
+import { generateStaticPaths } from "../../utils/i18n/utils";
+import { isValidLang, defaultLang } from "../../utils/i18n/config";
+
+export const getStaticPaths = generateStaticPaths;
+
+const { lang } = Astro.params;
+
+if (!isValidLang(lang)) {
+  return Astro.redirect(`/${defaultLang}`)
+}
+---
+<Layout>
+  <PCookies/>
+</Layout>

@@ -10,6 +10,7 @@ import type { BrandsData } from "../../types/marcas";
 import type { CommitmentData } from "../../types/compromiso";
 import type { CampoData } from "../../types/campo";
 import type { LegalData } from "../../types/legal";
+import type { CookiesBanner } from "../../types/cookies";
 
 export function getLangData(Astro: any) {
   const { lang } = Astro.params;
@@ -135,3 +136,11 @@ const legalFiles = import.meta.glob<{ default: LegalData }>(
 
 export const getLegal = (lang: string) =>
   loadJsonByLang<LegalData>(legalFiles, lang, "Legal");
+
+const cookiesBannerFiles = import.meta.glob<{ default: CookiesBanner }>(
+  "/src/data/cookies/*.json",
+  { eager: true }
+);
+
+export const getCookiesBanner = (lang: string) =>
+  loadJsonByLang<CookiesBanner>(cookiesBannerFiles, lang, "CookiesBanner");

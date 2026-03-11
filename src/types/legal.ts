@@ -47,6 +47,7 @@ export interface Privacidad {
 export interface LegalData {
   avisoLegal: AvisoLegal;
   privacidad: Privacidad;
+  cookies:  CookiesPolicy;
 }
 
 export interface CookiesSection {

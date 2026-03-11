@@ -1,0 +1,42 @@
+---
+import type { CookiesBanner } from "../types/cookies";
+import { getCookiesBanner } from "../utils/i18n/i18n";
+
+interface Props {
+  lang: "es" | "en";
+}
+
+const { lang } = Astro.props;
+const t = await getCookiesBanner(lang) as CookiesBanner;
+---
+
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Cookie consent">
+  <p class="cookie-banner__text">
+    {t.message}
+    <a href={t.policyUrl} class="cookie-banner__link">{t.policy}</a>
+  </p>
+  <div class="cookie-banner__actions">
+    <button id="cookie-reject" class="btn btn-secondary cookie-btn">{t.reject}</button>
+    <button id="cookie-accept" class="btn btn-primary cookie-btn">{t.accept}</button>
+  </div>
+</div>
+
+<script>
+  const banner = document.getElementById("cookie-banner");
+  const acceptBtn = document.getElementById("cookie-accept");
+  const rejectBtn = document.getElementById("cookie-reject");
+
+  if (!localStorage.getItem("cookie-consent")) {
+    banner?.classList.add("cookie-banner--visible");
+  }
+
+  acceptBtn?.addEventListener("click", () => {
+    localStorage.setItem("cookie-consent", "accepted");
+    banner?.classList.remove("cookie-banner--visible");
+  });
+
+  rejectBtn?.addEventListener("click", () => {
+    localStorage.setItem("cookie-consent", "rejected");
+    banner?.classList.remove("cookie-banner--visible");
+  });
+</script>

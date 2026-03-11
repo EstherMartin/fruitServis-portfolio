@@ -3,16 +3,15 @@ import "../styles/global.scss";
 import Analytics from '@vercel/analytics/astro'
 import NavBar from "../components/NavBar.astro";
 import Footer from "../components/Footer.astro";
-
-const langParam = Astro.params.lang;
+import CookieBanner from "../components/CookieBanner.astro";
 
 const lang = Astro.params.lang!;
+const currentLang = lang as "es" | "en";
 
 Astro.cookies.set("lang", lang, {
   path: "/",
   maxAge: 60 * 60 * 24 * 365
 });
-
 ---
 
 <!doctype html>
@@ -35,5 +34,6 @@ Astro.cookies.set("lang", lang, {
       <Footer />
     </div>
     <div id="toast-container"></div>
+    <CookieBanner lang={currentLang} />
   </body>
 </html>
