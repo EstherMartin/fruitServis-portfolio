@@ -1,6 +1,8 @@
 ---
 import "../styles/global.scss";
 import Analytics from '@vercel/analytics/astro'
+import NavBar from "../components/NavBar.astro";
+import Footer from "../components/Footer.astro";
 
 const langParam = Astro.params.lang;
 
@@ -14,27 +16,24 @@ Astro.cookies.set("lang", lang, {
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-		<Analytics />
-	</head>
-	<body>
-		<slot />
-		<div id="toast-container"></div>
-	</body>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro Basics</title>
+    <Analytics />
+  </head>
+  <body>
+    <div class="page">
+      <NavBar />
+      <main class="content">
+        <slot />
+      </main>
+      <Footer />
+    </div>
+    <div id="toast-container"></div>
+  </body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

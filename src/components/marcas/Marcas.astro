@@ -1,0 +1,61 @@
+---
+import type { BrandsData } from "../../types/marcas";
+import { getBrands } from "../../utils/i18n/i18n";
+
+const { lang } = Astro.params;
+const currentLang = lang as "es" | "en";
+
+const brands = await getBrands(currentLang) as BrandsData;
+
+const rawImages = import.meta.glob(
+  "/src/assets/marcas/*.{jpg,jpeg,png,webp}",
+  { eager: true, as: "url" }
+);
+
+const images: Record<string, string> = Object.fromEntries(
+  Object.entries(rawImages).map(([path, url]) => {
+    const name = path.replace(/^.*[\\/]/, "").replace(/\.[^/.]+$/, "");
+    return [name, url as string];
+  })
+);
+---
+
+<section class="marcas">
+
+  <span class="marcas-tag">
+    {brands.header}
+  </span>
+
+  <h1>
+    {brands.title}
+  </h1>
+
+  <p class="marcas-subtitle">
+    {brands.subtitle}
+  </p>
+
+  <div class="brands-grid">
+    {brands.brands.map(brand => {
+
+      const imageSrc = images[brand.image];
+
+      return (
+        <div class="brand-card">
+          <div class="brand-image">
+            <img
+              src={imageSrc}
+              alt={brand.name}
+              loading="lazy"
+            />
+          </div>
+
+          <div class="brand-content">
+            <h3>{brand.name}</h3>
+            <p>{brand.description}</p>
+          </div>
+        </div>
+      );
+    })}
+  </div>
+
+</section>

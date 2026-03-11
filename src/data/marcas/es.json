@@ -1,17 +1,32 @@
 {
   "header": "Nuestras marcas",
   "title": "Marcas que representan nuestra calidad",
-  "subtitle": "Desarrollamos y comercializamos marcas que transmiten confianza, frescura y profesionalidad.",
+  "subtitle": "Desarrollamos y comercializamos marcas que transmiten confianza, frescura y profesionalidad en cada mercado.",
   "brands": [
     {
-      "name": "Fruit Select",
-      "description": "Marca premium destinada a mercados internacionales.",
-      "logo": "/images/marcas/fruit-select.png"
+      "name": "Fruit Service",
+      "description": "Marca premium destinada a mercados internacionales con altos estándares de calidad.",
+      "image": "fruit-service"
     },
     {
       "name": "Campo Natural",
-      "description": "Línea enfocada en frescura y producción sostenible.",
-      "logo": "/images/marcas/campo-natural.png"
+      "description": "Línea enfocada en frescura, sostenibilidad y cercanía con el origen.",
+      "image": "campo-natural"
+    },
+    {
+      "name": "Mediterránea Fresh",
+      "description": "Marca orientada a la gran distribución europea, con producto seleccionado y controlado en origen.",
+      "image": "mediterranea-fresh"
+    },
+    {
+      "name": "Origen del Sol",
+      "description": "Línea que destaca la tradición agrícola y la calidad de nuestras fincas en el sureste español.",
+      "image": "origen-del-sol"
+    },
+    {
+      "name": "Green Harvest",
+      "description": "Marca enfocada en producción responsable y certificaciones internacionales de calidad.",
+      "image": "green-harvest"
     }
   ]
 }

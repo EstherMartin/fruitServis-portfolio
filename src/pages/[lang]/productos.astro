@@ -1,7 +1,5 @@
 ---
-import NavBar from "../../components/NavBar.astro";
 import CatalogoProductos from "../../components/productos/Productos.astro";
-import Footer from '../../components/Footer.astro';
 import Layout from '../../layouts/Layout.astro';
 
 import { generateStaticPaths } from "../../utils/i18n/utils";
@@ -17,8 +15,6 @@ if (!isValidLang(lang)) {
 ---
 
 <Layout>
-	<NavBar />
   <CatalogoProductos />
-  <Footer />
 </Layout>
 

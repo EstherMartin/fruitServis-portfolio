@@ -1,11 +1,9 @@
 ---
-import NavBar from "../../components/NavBar.astro";
+import Layout from '../../layouts/Layout.astro';
 import Header from "../../components/home/Header.astro";
 import EmpresaHistoria from '../../components/home/Empresa-historia.astro';
 import EmpresaDefinicion from '../../components/home/Empresa-definicion.astro';
 import Composicion from '../../components/home/Composicion.astro';
-import Footer from '../../components/Footer.astro';
-import Layout from '../../layouts/Layout.astro';
 
 export const prerender = false;
 
@@ -23,10 +21,8 @@ if (!isValidLang(lang)) {
 ---
 
 <Layout>
-	<NavBar />
 	<Header />
   <EmpresaDefinicion />
   <EmpresaHistoria />
   <Composicion />
-  <Footer />
 </Layout>

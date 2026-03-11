@@ -1,7 +1,7 @@
 export interface Brand {
   name: string;
   description: string;
-  logo: string;
+  image: string;
 }
 
 export interface BrandsData {
