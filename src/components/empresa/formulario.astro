@@ -109,7 +109,7 @@ const formData = await getFormulario(currentLang) as Formulario;
       showToast("Enviando mensaje...", "info");
 
       try {
-        const res = await fetch("/api/contact", {
+        const res = await fetch("/api/send-contact", {
           method: "POST",
           body: formDataToSend,
         });
