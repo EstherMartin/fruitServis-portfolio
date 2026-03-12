@@ -60,12 +60,25 @@ export const POST: APIRoute = async ({ request }) => {
     });
 
     if (error) {
+      console.error('Resend error:', error);
       return new Response(JSON.stringify({ error: error.message }), { status: 500 });
     }
 
     return new Response(JSON.stringify({ success: true }), { status: 200 });
 
   } catch (error) {
+    console.error('API error:', error);
     return new Response(JSON.stringify({ error: 'Error interno' }), { status: 500 });
   }
+};
+
+export const OPTIONS: APIRoute = async () => {
+  return new Response(null, {
+    status: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    },
+  });
 };
