@@ -11,18 +11,17 @@ const currentLang = lang as "es" | "en";
 
 const data = await getCampo(currentLang) as CampoData;
 
-const rawImages = import.meta.glob(
+const rawImages = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/campo/*.{jpg,jpeg,png,webp}",
-  { eager: true, query: "?url", import: "default" }
+  { eager: true }
 );
 
-const images: Record<string, string> = Object.fromEntries(
-  Object.entries(rawImages).map(([path, url]) => {
+const images: Record<string, ImageMetadata> = Object.fromEntries(
+  Object.entries(rawImages).map(([path, module]) => {
     const name = path.replace(/^.*[\\/]/, "").replace(/\.[^/.]+$/, "");
-    return [name, url as string];
+    return [name, module.default];
   })
 );
-
 ---
 
 <section class="campo">
@@ -35,36 +34,32 @@ const images: Record<string, string> = Object.fromEntries(
 
   <div class="campo-sections">
     {data.sections.map((section, index) => {
-
       const imageSrc = images[section.image];
       const reverse = index % 2 !== 0;
 
       return (
         <div class={`campo-row ${reverse ? "reverse" : ""}`}>
-
           <div class="campo-text">
             <h2>{section.title}</h2>
             {section.text.map(p => <p>{p}</p>)}
           </div>
 
           <div class="campo-image">
-            <img src={imageSrc} alt={section.title} loading="lazy" />
+            <Image src={imageSrc} alt={section.title} width={600} />
           </div>
-
         </div>
       );
     })}
   </div>
 
   <div class="campo-certificados">
-  <div class="campo-hero">
-    <span class="campo-tag">{data.certificationsTitle}</span>
+    <div class="campo-hero">
+      <span class="campo-tag">{data.certificationsTitle}</span>
+    </div>
+    <div class="certificados-grid">
+      <Image src={globalgap} alt="Global GAP" width={120} />
+      <Image src={grasp} alt="GRASP" width={120} />
+      <Image src={ifs} alt="IFS" width={120} />
+    </div>
   </div>
-  <div class="certificados-grid">
-    <Image src={globalgap} alt="Global GAP" width={120} />
-    <Image src={grasp} alt="GRASP" width={120} />
-    <Image src={ifs} alt="IFS" width={120} />
-  </div>
-</div>
-
 </section>
