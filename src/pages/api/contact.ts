@@ -17,7 +17,10 @@ export const POST: APIRoute = async ({ request }) => {
     const formData = await request.formData();
 
     if (formData.get('website')) {
-      return new Response(JSON.stringify({ error: 'Spam detected' }), { status: 400 });
+      return new Response(JSON.stringify({ error: 'Spam detected' }), { 
+        status: 400,
+        headers: { 'Content-Type': 'application/json' }
+      });
     }
 
     const motivo = escapeHtml(formData.get('motivo') as string || "");
@@ -29,7 +32,10 @@ export const POST: APIRoute = async ({ request }) => {
     const cvFile = formData.get('cv') as File | null;
 
     if (!motivo || !nombre || !email || !mensaje) {
-      return new Response(JSON.stringify({ error: 'Campos requeridos faltantes' }), { status: 400 });
+      return new Response(JSON.stringify({ error: 'Campos requeridos faltantes' }), { 
+        status: 400,
+        headers: { 'Content-Type': 'application/json' }
+      });
     }
 
     let attachments = [];
@@ -61,14 +67,23 @@ export const POST: APIRoute = async ({ request }) => {
 
     if (error) {
       console.error('Resend error:', error);
-      return new Response(JSON.stringify({ error: error.message }), { status: 500 });
+      return new Response(JSON.stringify({ error: error.message }), { 
+        status: 500,
+        headers: { 'Content-Type': 'application/json' }
+      });
     }
 
-    return new Response(JSON.stringify({ success: true }), { status: 200 });
+    return new Response(JSON.stringify({ success: true }), { 
+      status: 200,
+      headers: { 'Content-Type': 'application/json' }
+    });
 
   } catch (error) {
     console.error('API error:', error);
-    return new Response(JSON.stringify({ error: 'Error interno' }), { status: 500 });
+    return new Response(JSON.stringify({ error: 'Error interno' }), { 
+      status: 500,
+      headers: { 'Content-Type': 'application/json' }
+    });
   }
 };
 
