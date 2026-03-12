@@ -16,14 +16,14 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     if (!form) return;
 
-    const formData = new FormData(form);
+    const formDataToSend = new FormData(form);
 
     showToast("Enviando mensaje...", "info");
 
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
-        body: formData,
+        body: formDataToSend,
       });
 
       const data = await res.json();
