@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const formData = new FormData(form);
 
-    showToast("Enviando...", "info");
+    showToast("Enviando mensaje...", "info");
 
     try {
       const res = await fetch("/api/contact", {
@@ -26,16 +26,18 @@ document.addEventListener("DOMContentLoaded", () => {
         body: formData,
       });
 
+      const data = await res.json();
+
       if (res.ok) {
         showToast("✅ Mensaje enviado correctamente", "success");
         form.reset();
         if (upload) upload.style.display = "none";
       } else {
-        const data = await res.json();
-        showToast(data.error || "Error enviando mensaje", "error");
+        showToast(data.error || "❌ Error enviando mensaje", "error");
       }
-    } catch {
-      showToast("Error de conexión", "error");
+    } catch (error) {
+      console.error("Error:", error);
+      showToast("❌ Error de conexión", "error");
     }
   });
 });
