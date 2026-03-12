@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     showToast("Enviando mensaje...", "info");
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("/api/send-contact", {
         method: "POST",
         body: formDataToSend,
       });
