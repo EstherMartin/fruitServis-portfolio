@@ -14,7 +14,7 @@ const formData = await getFormulario(currentLang) as Formulario;
     <h2>{formData.title}</h2>
     <h3>{formData.subtitle}</h3>
 
-    <form id="contact-form" method="POST" action="/api/contact" enctype="multipart/form-data">
+    <form id="contact-form">
 
       <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" />
 
