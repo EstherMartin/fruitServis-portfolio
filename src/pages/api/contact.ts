@@ -15,13 +15,11 @@ const escapeHtml = (str: string) =>
 export const POST: APIRoute = async ({ request }) => {
   try {
     const formData = await request.formData();
-    
-    // Honeypot
+
     if (formData.get('website')) {
       return new Response(JSON.stringify({ error: 'Spam detected' }), { status: 400 });
     }
 
-    // Sanitización de inputs
     const motivo = escapeHtml(formData.get('motivo') as string || "");
     const nombre = escapeHtml(formData.get('nombre') as string || "");
     const empresa = escapeHtml(formData.get('empresa') as string || "");
@@ -46,7 +44,7 @@ export const POST: APIRoute = async ({ request }) => {
     const { data, error } = await resend.emails.send({
       from: 'Fruit Service web <onboarding@resend.dev>',
       to: CONTACT_EMAIL,
-      subject: `Respuesta a: ${motivo}`,
+      subject: `${motivo}`,
       replyTo: email,
       html: `
         <h2>Nuevo mensaje de contacto</h2>
