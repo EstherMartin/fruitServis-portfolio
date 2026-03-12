@@ -65,5 +65,74 @@ const formData = await getFormulario(currentLang) as Formulario;
     </form>
   </div>
 </section>
+<!-- 
+<script type="module" src="/src/scripts/contact-form.ts"></script> -->
 
-<script type="module" src="/src/scripts/contact-form.ts"></script>
+<script type="module">
+  // Define el toast aquí
+  function showToast(message, type = "info", duration = 3000) {
+    const container = document.getElementById("toast-container");
+    if (!container) return;
+
+    const toast = document.createElement("div");
+    toast.classList.add("toast", type);
+    toast.textContent = message;
+
+    container.appendChild(toast);
+
+    setTimeout(() => {
+      toast.classList.add("hide");
+      setTimeout(() => {
+        toast.remove();
+      }, 300);
+    }, duration);
+  }
+
+  const initForm = () => {
+    const form = document.querySelector("#contact-form");
+    const select = document.querySelector("#subject-select");
+    const upload = document.querySelector("#cv-upload");
+
+    select?.addEventListener("change", (e) => {
+      const target = e.target;
+      if (upload) {
+        upload.style.display = target.value === "cv" ? "block" : "none";
+      }
+    });
+
+    form?.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (!form) return;
+
+      const formDataToSend = new FormData(form);
+
+      showToast("Enviando mensaje...", "info");
+
+      try {
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          body: formDataToSend,
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          showToast("✅ Mensaje enviado correctamente", "success");
+          form.reset();
+          if (upload) upload.style.display = "none";
+        } else {
+          showToast(data.error || "❌ Error enviando mensaje", "error");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        showToast("❌ Error de conexión", "error");
+      }
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initForm);
+  } else {
+    initForm();
+  }
+</script>
