@@ -1,7 +1,6 @@
 ---
 import type { CampoData } from "../../types/campo";
 import { getCampo } from "../../utils/i18n/i18n";
-import { Image } from "astro:assets";
 import globalgap from "../../assets/certificados/globalgap.png";
 import grasp from "../../assets/certificados/grasp.png";
 import ifs from "../../assets/certificados/ifs.jpg";
@@ -11,18 +10,23 @@ const currentLang = lang as "es" | "en";
 
 const data = await getCampo(currentLang) as CampoData;
 
-const rawImages = import.meta.glob(
+const rawImagesCampo = import.meta.glob(
   "/src/assets/campo/*.{jpg,jpeg,png,webp}",
   { eager: true, query: "?url", import: "default" }
 );
 
-const images: Record<string, string> = Object.fromEntries(
-  Object.entries(rawImages).map(([path, url]) => {
+const imagesCampo: Record<string, string> = Object.fromEntries(
+  Object.entries(rawImagesCampo).map(([path, url]) => {
     const name = path.replace(/^.*[\\/]/, "").replace(/\.[^/.]+$/, "");
     return [name, url as string];
   })
 );
 
+const certificados = [
+  { src: globalgap, alt: "Global GAP" },
+  { src: grasp, alt: "GRASP" },
+  { src: ifs, alt: "IFS" }
+];
 ---
 
 <section class="campo">
@@ -36,7 +40,7 @@ const images: Record<string, string> = Object.fromEntries(
   <div class="campo-sections">
     {data.sections.map((section, index) => {
 
-      const imageSrc = images[section.image];
+      const imageSrc = imagesCampo[section.image];
       const reverse = index % 2 !== 0;
 
       return (
@@ -57,14 +61,14 @@ const images: Record<string, string> = Object.fromEntries(
   </div>
 
   <div class="campo-certificados">
-  <div class="campo-hero">
-    <span class="campo-tag">{data.certificationsTitle}</span>
+    <div class="campo-hero">
+      <span class="campo-tag">{data.certificationsTitle}</span>
+    </div>
+    <div class="certificados-grid">
+      {certificados.map(cert => (
+        <img src={cert.src.src} alt={cert.alt} width="120" loading="lazy" />
+      ))}
+    </div>
   </div>
-  <div class="certificados-grid">
-    <Image src={globalgap} alt="Global GAP" width={120} />
-    <Image src={grasp} alt="GRASP" width={120} />
-    <Image src={ifs} alt="IFS" width={120} />
-  </div>
-</div>
 
 </section>

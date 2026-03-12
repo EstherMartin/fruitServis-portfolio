@@ -2,13 +2,13 @@
 import type { CommitmentData } from "../../types/compromiso";
 import { getCommitment } from "../../utils/i18n/i18n";
 import energiaLimpia from "../../assets/sostenibilidad/energia.jpg";
-import { Image } from "astro:assets";
 
 
 const { lang } = Astro.params;
 const currentLang = lang as "es" | "en";
 
 const data = await getCommitment(currentLang) as CommitmentData;
+
 ---
 
 <section class="compromiso-modern">
@@ -29,7 +29,7 @@ const data = await getCommitment(currentLang) as CommitmentData;
   </div>
 
   <div class="compromiso-image-divider">
-    <Image src={energiaLimpia} alt="Compromiso sostenible" />
+    <img src={energiaLimpia.src} alt="Energía Limpia" width="120" loading="lazy" />
   </div>
 
   <div class="compromiso-quote">
